@@ -46,6 +46,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <h4 class="alert-heading">Registrazione completata!</h4>
                             <p>Benvenuto a Netflix Clone.</p>
                         </div>';
+
+                        header('Refresh: 2; URL=/progetto-netflix-php/build-week5/');
+                        exit;               
     } else {
         $alertMessage = '<div class="alert alert-danger" role="alert">
                             <h4 class="alert-heading">Errore durante la registrazione</h4>
@@ -53,9 +56,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </div>';
     }
 
-    header('Refresh: 2; URL=/progetto-netflix-php/build-week5/');
-    exit;
-
+    
+    
     
 }
 
