@@ -89,7 +89,7 @@ session_start()
               <i class="bi bi-search icons"></i>
               <div id="kids" class="fw-bold">KIDS</div>
               <i class="bi bi-bell icons"></i>
-              <i class="bi bi-person-circle icons" onclick="<?= session_destroy(); header("Location: http://localhost/progetto-netflix-php/build-week5/") ?>"></i>
+              <i class="bi bi-person-circle icons" onclick="<?= session_destroy(); ?>"></i>
             </div>
           </div>
         </div>
