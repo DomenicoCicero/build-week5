@@ -52,6 +52,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <p>Si è verificato un errore durante la registrazione. Riprova più tardi.</p>
                         </div>';
     }
+
+    header('Refresh: 2; URL=/progetto-netflix-php/build-week5/');
+    exit;
+
+    
 }
 
 ?>
