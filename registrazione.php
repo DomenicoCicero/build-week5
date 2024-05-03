@@ -87,7 +87,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     </style>
 </head>
 <body>
-<?= $alertMessage ?>
+  <?= $alertMessage ?? '' ?>
 
 
 
