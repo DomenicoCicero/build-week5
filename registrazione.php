@@ -42,10 +42,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     ]);
 
     $success = true;
-    echo' <div class="alert alert-success" role="alert">
-    <h4 class="alert-heading">Well done! registrazione completata</h4>
-  </div>';
-
+    echo' <div class="alert" role="alert">
+    <h4 class="text">Well done! registrazione completata</h4>
+     </div>';
     
 }
 var_dump($success); // Aggiungi questo var_dump per controllare il valore di $success
@@ -65,6 +64,15 @@ if($success) {
     <title>Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
+    <style>
+        .alert {
+            border: 1px solid green;
+            background-color: green;
+        }
+        .text {
+            color: white;
+        }
+    </style>
 </head>
 <body>
 
