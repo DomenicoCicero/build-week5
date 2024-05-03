@@ -41,10 +41,12 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         "password" => password_hash($_POST['password'], PASSWORD_DEFAULT)
     ]);
 
-    
+    $success = true;
 
     
 }
+var_dump($success); // Aggiungi questo var_dump per controllare il valore di $success
+
 if($success) {
 
     header('Refresh: 2; URL=/progetto-netflix-php/build-week5/');
