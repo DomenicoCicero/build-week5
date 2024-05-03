@@ -42,7 +42,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     ]);
 
     $success = true;
-    echo' <div class="alert" role="alert">
+    echo '<div class="alert" role="alert">
     <h4 class="text">Well done! registrazione completata</h4>
      </div>';
     
@@ -75,11 +75,6 @@ if($success) {
     </style>
 </head>
 <body>
-
-
-
-
-
 
     <div class="<?= $success ? 'd-none' : 'container'?>  ">
     <h1>Registrazione</h1>
