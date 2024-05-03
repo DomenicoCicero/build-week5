@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-$host = 'localhost';
-$db = 'netflix_clone';
-$user = 'root';
+$host = `localhost`;
+$db = `netflix_clone`;
+$user = `root`;
 $pass = '';
 
 $dsn = "mysql:host=$host;dbname=$db";
@@ -16,40 +16,31 @@ $options = [
 
 $pdo = new PDO($dsn, $user, $pass, $options);
 
-if(isset($_SESSION['user_id'])) {
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE user_id = :user_id_from_session");
-    $stmt->execute([
-        "user_id_from_session" => $_SESSION['user_id']
+if(isset($_SESSION["user_id"])) {
+    $stmt = $pdo-> prepare("SELECT * FROM users WHERE user_id = :user_id_from_session");
+    $stmt -> execute([
+        ":user_id_from_session" => $_SESSION["user_id"]
+
     ]);
 
-    $user_from_db = $stmt->fetch();
+    $user_from_db = $stmt -> fetch();
 }
 
 $user = [];
-$user['username'] = $_POST['username'] ?? '';
-$user['password'] = $_POST['password'] ?? '';
+$user[`username`] = $_POST[`username`] ?? ``;
+$user[`email`] = $_POST[`email`] ?? ``;
+$user[`password`] = $_POST[`password`] ?? ``;
 
-if($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE username = :username");
-    $stmt->execute([
-        "username" => $_POST['username']
+if($_SERVER[`REQUEST_METHOD`] === `POST`) {
+    $stmt = $pdo -> prepare("INSERT INTO users (username, email, password) VALUES (:username, :email, :password)");
+    $stmt -> execute([
+        "username" => $_POST[`username`],
+        "email" => $_POST[`email`],
+        "password" => password_hash($_POST[`password`], PASSWORD_DEFAULT)
     ]);
-
-    $user_from_db = $stmt->fetch();
-
-    if($user_from_db) {
-        if(password_verify($_POST['password'], $user_from_db['password'])) {
-            $_SESSION["user_id"] = $user_from_db['user_id'];
-            // echo $_SESSION;
-            echo('Ciao ' . $user_from_db["username"]);
-        };
-    }
-
-    $error['credentials'] = "Credenziali non valide";
-
-
+    header(`Location: /progetto-netflix-php/build-week5/`);
+    exit;
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -63,19 +54,27 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <div class="container">
-    <h1>Login</h1>
+    <h1>Registrazione</h1>
     <form action="" method="POST" novalidate  class="mb-4">
         <div class="mb-3">
             <label for="username" class="form-label">Username</label>
             <input type="text" class="form-control" id="username" name="username" value="<?= $user['username'] ?>">
         </div>
         <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="password" name="password" value="">
+            <label for="email" class="form-label">email</label>
+            <input type="email" class="form-control" id="email" name="email" value="<?= $user['email'] ?>">
         </div>
-        <button type="submit" class="btn btn-primary">Login</button>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password" value="<?= $user['password'] ?>">
+        </div>
+        <button type="submit" class="btn btn-primary">Registrati</button>
     </form>
-    <a href="http://localhost/progetto-netflix-php/build-week5/registrazione.php">Vai alla registrazione</a>
+    <!-- <a href="http://localhost/pratica-s2-l1-php/register.php">Vai alla registrazione</a> -->
  </div>
 </body>
 </html>
+
+
+
+
