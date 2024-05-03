@@ -47,7 +47,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 if($success) {
 
-    header('Location: /progetto-netflix-php/build-week5/');
+    header('Refresh: 2; URL=/progetto-netflix-php/build-week5/');
     exit;
 }
 ?>
