@@ -40,27 +40,27 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     if($user_from_db) {
         if(password_verify($_POST['password'], $user_from_db['password'])) {
             $_SESSION["user_id"] = $user_from_db['user_id'];
-            echo var_dump($_SESSION);
+            // echo var_dump($_SESSION);
             echo '<div class="alert alert-success" role="alert">
                             <h4 class="alert-heading">Login completato!</h4>
                             <p>Benvenuto a Netflix Clone.</p>
-                        </div>';
+                            </div>';
         } else {
                     echo '<div class="alert alert-danger" role="alert">
-        <h4 class="alert-heading">Password errata</h4>
-        <p>Si è verificato un errore durante il login. Riprova più tardi.</p>
-    </div>';
+                          <h4 class="alert-heading">Password errata</h4>
+                          <p>Si è verificato un errore durante il login. Riprova più tardi.</p>
+                          </div>';
         }
 
     } else {
     echo '<div class="alert alert-danger" role="alert">
-    <h4 class="alert-heading">Utente non esistente</h4>
-    <p>Si è verificato un errore durante il login. Riprova più tardi.</p>
-</div>';
+          <h4 class="alert-heading">Utente non esistente</h4>
+          <p>Si è verificato un errore durante il login. Riprova più tardi.</p>
+        </div>';
     }
 
 
-    $error['credentials'] = "Credenziali non valide";
+    // $error['credentials'] = "Credenziali non valide";
 
 
 }
