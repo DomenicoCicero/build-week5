@@ -34,26 +34,26 @@ $user['email'] = $_POST['email'] ?? '';
 $user['password'] = $_POST['password'] ?? '';
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $stmt = $pdo -> prepare("INSERT INTO users (username, email, password) VALUES (:username, :email, :password)");
-    $stmt -> execute([
+    $stmt = $pdo->prepare("INSERT INTO users (username, email, password) VALUES (:username, :email, :password)");
+    $success = $stmt->execute([
         "username" => $_POST['username'],
         "email" => $_POST['email'],
         "password" => password_hash($_POST['password'], PASSWORD_DEFAULT)
     ]);
 
-    $success = true;
-    echo '<div class="alert" role="alert">
-    <h4 class="text">Well done! registrazione completata</h4>
-     </div>';
-    
+    if ($success) {
+        $alertMessage = '<div class="alert alert-success" role="alert">
+                            <h4 class="alert-heading">Registrazione completata!</h4>
+                            <p>Benvenuto a Netflix Clone.</p>
+                        </div>';
+    } else {
+        $alertMessage = '<div class="alert alert-danger" role="alert">
+                            <h4 class="alert-heading">Errore durante la registrazione</h4>
+                            <p>Si è verificato un errore durante la registrazione. Riprova più tardi.</p>
+                        </div>';
+    }
 }
-var_dump($success); // Aggiungi questo var_dump per controllare il valore di $success
 
-if($success) {
-
-    header('Refresh: 2; URL=/progetto-netflix-php/build-week5/');
-    exit;
-}
 ?>
 
 <!DOCTYPE html>
@@ -64,17 +64,32 @@ if($success) {
     <title>Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
+    
     <style>
         .alert {
-            border: 1px solid green;
-            background-color: green;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid transparent;
+            border-radius: .25rem;
         }
-        .text {
-            color: white;
+
+        .alert-success {
+            color: #155724;
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+        }
+
+        .alert-danger {
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
         }
     </style>
 </head>
 <body>
+<?= $alertMessage ?>
+
+
 
     <div class="<?= $success ? 'd-none' : 'container'?>  ">
     <h1>Registrazione</h1>
