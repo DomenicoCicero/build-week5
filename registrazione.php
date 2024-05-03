@@ -33,6 +33,8 @@ $user['username'] = $_POST['username'] ?? '';
 $user['email'] = $_POST['email'] ?? '';
 $user['password'] = $_POST['password'] ?? '';
 
+$alertMessage = '';
+
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $pdo->prepare("INSERT INTO users (username, email, password) VALUES (:username, :email, :password)");
     $success = $stmt->execute([
