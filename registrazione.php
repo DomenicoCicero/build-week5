@@ -43,7 +43,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $success = true;
 
-    sleep(2);
+    
+}
+if($success) {
+
     header('Location: /progetto-netflix-php/build-week5/');
     exit;
 }
