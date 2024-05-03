@@ -37,11 +37,20 @@ $alertMessage = '';
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $pdo->prepare("INSERT INTO users (username, email, password) VALUES (:username, :email, :password)");
-    $success = $stmt->execute([
+    try {
+            $success = $stmt->execute([
         "username" => $_POST['username'],
         "email" => $_POST['email'],
         "password" => password_hash($_POST['password'], PASSWORD_DEFAULT)
     ]);
+} catch (\PDOException $e) {
+    // Puoi gestire l'eccezione in base alle tue esigenze
+    // Ad esempio, puoi registrare l'errore o mostrare un messaggio agli utenti
+    $errorMessage = "Errore durante l'esecuzione della query: " . $e->getMessage();
+    // Qui puoi fare qualsiasi altra azione necessaria, come registrare l'errore in un file di log
+    // o reindirizzare l'utente a una pagina di errore.
+}
+
 
     if ($success) {
         $alertMessage = '<div class="alert alert-success" role="alert">
@@ -56,7 +65,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </div>';
     }
 
-    echo $alertMessage; // Stampiamo l'alert prima dell'header di reindirizzamento
+    echo $alertMessage;
 
     if ($success) {
         header('Refresh: 2; URL=/progetto-netflix-php/build-week5/');
