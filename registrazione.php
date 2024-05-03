@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-$host = `localhost`;
-$db = `netflix_clone`;
-$user = `root`;
+$host = 'localhost';
+$db = 'netflix_clone';
+$user = 'root';
 $pass = '';
 
 $dsn = "mysql:host=$host;dbname=$db";
@@ -19,7 +19,7 @@ $pdo = new PDO($dsn, $user, $pass, $options);
 if(isset($_SESSION["user_id"])) {
     $stmt = $pdo-> prepare("SELECT * FROM users WHERE user_id = :user_id_from_session");
     $stmt -> execute([
-        ":user_id_from_session" => $_SESSION["user_id"]
+        "user_id_from_session" => $_SESSION["user_id"]
 
     ]);
 
@@ -27,18 +27,18 @@ if(isset($_SESSION["user_id"])) {
 }
 
 $user = [];
-$user[`username`] = $_POST[`username`] ?? ``;
-$user[`email`] = $_POST[`email`] ?? ``;
-$user[`password`] = $_POST[`password`] ?? ``;
+$user['username'] = $_POST['username'] ?? '';
+$user['email'] = $_POST['email'] ?? '';
+$user['password'] = $_POST['password'] ?? '';
 
-if($_SERVER[`REQUEST_METHOD`] === `POST`) {
+if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $pdo -> prepare("INSERT INTO users (username, email, password) VALUES (:username, :email, :password)");
     $stmt -> execute([
-        "username" => $_POST[`username`],
-        "email" => $_POST[`email`],
-        "password" => password_hash($_POST[`password`], PASSWORD_DEFAULT)
+        "username" => $_POST['username'],
+        "email" => $_POST['email'],
+        "password" => password_hash($_POST['password'], PASSWORD_DEFAULT)
     ]);
-    header(`Location: /progetto-netflix-php/build-week5/`);
+    header('Location: /progetto-netflix-php/build-week5/');
     exit;
 }
 ?>
