@@ -26,6 +26,8 @@ if(isset($_SESSION["user_id"])) {
     $user_from_db = $stmt -> fetch();
 }
 
+$success = false;
+
 $user = [];
 $user['username'] = $_POST['username'] ?? '';
 $user['email'] = $_POST['email'] ?? '';
@@ -38,6 +40,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         "email" => $_POST['email'],
         "password" => password_hash($_POST['password'], PASSWORD_DEFAULT)
     ]);
+
+    $success = true;
+
+    sleep(2);
     header('Location: /progetto-netflix-php/build-week5/');
     exit;
 }
@@ -53,7 +59,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
 </head>
 <body>
-    <div class="container">
+
+ <div class=" <?= $success ? 'alert alert-success' : 'd-none' ?> " role="alert">
+  <h4 class="alert-heading">Well done! registrazione completata</h4>
+ </div>
+
+
+    <div class="<?= $success ? 'd-none' : 'container'?>  ">
     <h1>Registrazione</h1>
     <form action="" method="POST" novalidate  class="mb-4">
         <div class="mb-3">
