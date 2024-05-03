@@ -45,11 +45,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <h4 class="alert-heading">Login completato!</h4>
                             <p>Benvenuto a Netflix Clone.</p>
                         </div>';
-        };
-        echo '<div class="alert alert-danger" role="alert">
+        } else {
+                    echo '<div class="alert alert-danger" role="alert">
         <h4 class="alert-heading">Password errata</h4>
         <p>Si è verificato un errore durante il login. Riprova più tardi.</p>
     </div>';
+        }
+
     } else {
     echo '<div class="alert alert-danger" role="alert">
     <h4 class="alert-heading">Utente non esistente</h4>
