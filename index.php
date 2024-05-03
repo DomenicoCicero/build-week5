@@ -50,12 +50,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         <h4 class="alert-heading">Password errata</h4>
         <p>Si è verificato un errore durante il login. Riprova più tardi.</p>
     </div>';
-    }
-
+    } else {
     echo '<div class="alert alert-danger" role="alert">
     <h4 class="alert-heading">Utente non esistente</h4>
     <p>Si è verificato un errore durante il login. Riprova più tardi.</p>
 </div>';
+    }
+
 
     $error['credentials'] = "Credenziali non valide";
 
