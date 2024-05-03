@@ -41,9 +41,21 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         if(password_verify($_POST['password'], $user_from_db['password'])) {
             $_SESSION["user_id"] = $user_from_db['user_id'];
             echo var_dump($_SESSION);
-            // echo('Ciao ' . $user_from_db["username"]);
+            echo '<div class="alert alert-success" role="alert">
+                            <h4 class="alert-heading">Login completato!</h4>
+                            <p>Benvenuto a Netflix Clone.</p>
+                        </div>';
         };
+        echo '<div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Password errata</h4>
+        <p>Si è verificato un errore durante il login. Riprova più tardi.</p>
+    </div>';
     }
+
+    echo '<div class="alert alert-danger" role="alert">
+    <h4 class="alert-heading">Utente non esistente</h4>
+    <p>Si è verificato un errore durante il login. Riprova più tardi.</p>
+</div>';
 
     $error['credentials'] = "Credenziali non valide";
 
@@ -60,6 +72,26 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
+    <style>
+        .alert {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid transparent;
+            border-radius: .25rem;
+        }
+
+        .alert-success {
+            color: #155724;
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+        }
+
+        .alert-danger {
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+        }
+    </style>
 </head>
 <body>
     <div class="container">

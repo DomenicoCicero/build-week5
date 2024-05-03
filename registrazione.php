@@ -44,11 +44,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         "password" => password_hash($_POST['password'], PASSWORD_DEFAULT)
     ]);
 } catch (\PDOException $e) {
-    // Puoi gestire l'eccezione in base alle tue esigenze
-    // Ad esempio, puoi registrare l'errore o mostrare un messaggio agli utenti
     $errorMessage = "Errore durante l'esecuzione della query: " . $e->getMessage();
-    // Qui puoi fare qualsiasi altra azione necessaria, come registrare l'errore in un file di log
-    // o reindirizzare l'utente a una pagina di errore.
 }
 
 
