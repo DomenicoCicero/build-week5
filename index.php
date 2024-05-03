@@ -40,7 +40,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     if($user_from_db) {
         if(password_verify($_POST['password'], $user_from_db['password'])) {
             $_SESSION["user_id"] = $user_from_db['user_id'];
-            echo $_SESSION;
+            echo var_dump($_SESSION);
             // echo('Ciao ' . $user_from_db["username"]);
         };
     }
