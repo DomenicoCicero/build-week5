@@ -46,6 +46,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <p>Benvenuto a Netflix Clone.</p>
                             </div>';
             header("Location: http://localhost/progetto-netflix-php/build-week5/myNavbar.php");
+            exit;
         } else {
                     echo '<div class="alert alert-danger" role="alert">
                           <h4 class="alert-heading">Password errata</h4>
