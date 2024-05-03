@@ -45,8 +45,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <h4 class="alert-heading">Login completato!</h4>
                             <p>Benvenuto a Netflix Clone.</p>
                             </div>';
-            header('Location: /progetto-netflix-php/build-week5/myNavbar.php');
-            exit;
+            // header('Location: /progetto-netflix-php/build-week5/myNavbar.php');
+            // exit;
         } else {
                     echo '<div class="alert alert-danger" role="alert">
                           <h4 class="alert-heading">Password errata</h4>
