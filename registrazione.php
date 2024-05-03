@@ -63,9 +63,11 @@ if($success) {
 </head>
 <body>
 
- <div class=" <?= $success ? 'alert alert-success' : 'd-none' ?> " role="alert">
+<?php if($success): ?>
+<div class="alert alert-success" role="alert">
   <h4 class="alert-heading">Well done! registrazione completata</h4>
- </div>
+</div>
+<?php endif; ?>
 
 
     <div class="<?= $success ? 'd-none' : 'container'?>  ">
