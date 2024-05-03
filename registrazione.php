@@ -42,6 +42,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     ]);
 
     $success = true;
+    echo' <div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">Well done! registrazione completata</h4>
+  </div>';
 
     
 }
@@ -65,11 +68,9 @@ if($success) {
 </head>
 <body>
 
-<?php if($success): ?>
-<div class="alert alert-success" role="alert">
-  <h4 class="alert-heading">Well done! registrazione completata</h4>
-</div>
-<?php endif; ?>
+
+
+
 
 
     <div class="<?= $success ? 'd-none' : 'container'?>  ">
