@@ -156,15 +156,15 @@ $searchVisible = false;
               </li>
             </ul>
             <div class="d-flex align-items-center">
-            <form class="<?= $searchVisible ? 'row g-3' : 'd-none' ?>">
-        <div class="col">
-            <input type="text" name="search" class="form-control" placeholder="Cerca un titolo">
-        </div>
-        <div class="col-auto">
-            <button type="submit" class="btn btn-primary mb-3">Cerca</button>
+             <form class="row g-3" id="searchForm">
+             <div class="col">
+             <input type="text" name="search" class="form-control" placeholder="Cerca un titolo">
+             </div>
+             <div class="col-auto">
+             <button type="submit" class="btn btn-primary mb-3">Cerca</button>
         </div>
     </form>
-              <i class="bi bi-search icons" onclick="<?= $searchVisible = !$searchVisible ?>"></i>
+              <i class="bi bi-search icons" id="searchIcon"></i>
               <div id="kids" class="fw-bold">KIDS</div>
               <i class="bi bi-bell icons"></i>
               <div class="dropdown">
@@ -224,68 +224,7 @@ $searchVisible = false;
         }
         
         ?>
-          <!-- <div class="col mb-2 text-center px-1">
-            <img class="img-fluid" src="assets/2.png" alt="movie picture" />
-          </div>
-          <div class="col mb-2 text-center px-1">
-            <img class="img-fluid" src="assets/3.png" alt="movie picture" />
-          </div>
-          <div class="col mb-2 text-center px-1">
-            <img class="img-fluid" src="assets/4.png" alt="movie picture" />
-          </div>
-          <div class="col mb-2 text-center px-1">
-            <img class="img-fluid" src="assets/5.png" alt="movie picture" />
-          </div>
-          <div class="col mb-2 text-center px-1">
-            <img class="img-fluid" src="assets/6.png" alt="movie picture" />
-          </div> -->
         </div>
-        <!-- <h4>Watch it Again</h4>
-        <div
-          class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-6 mb-4"
-        >
-          <div class="col mb-2 text-center px-1">
-            <img class="img-fluid" src="assets/7.png" alt="movie picture" />
-          </div>
-          <div class="col mb-2 text-center px-1">
-            <img class="img-fluid" src="assets/8.png" alt="movie picture" />
-          </div>
-          <div class="col mb-2 text-center px-1">
-            <img class="img-fluid" src="assets/9.png" alt="movie picture" />
-          </div>
-          <div class="col mb-2 text-center px-1">
-            <img class="img-fluid" src="assets/10.png" alt="movie picture" />
-          </div>
-          <div class="col mb-2 text-center px-1">
-            <img class="img-fluid" src="assets/11.png" alt="movie picture" />
-          </div>
-          <div class="col mb-2 text-center px-1">
-            <img class="img-fluid" src="assets/12.png" alt="movie picture" />
-          </div>
-        </div>
-        <h4>New Releases</h4>
-        <div
-          class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-6 mb-4"
-        >
-          <div class="col mb-2 text-center px-1">
-            <img class="img-fluid" src="assets/13.png" alt="movie picture" />
-          </div>
-          <div class="col mb-2 text-center px-1">
-            <img class="img-fluid" src="assets/14.png" alt="movie picture" />
-          </div>
-          <div class="col mb-2 text-center px-1">
-            <img class="img-fluid" src="assets/15.png" alt="movie picture" />
-          </div>
-          <div class="col mb-2 text-center px-1">
-            <img class="img-fluid" src="assets/16.png" alt="movie picture" />
-          </div>
-          <div class="col mb-2 text-center px-1">
-            <img class="img-fluid" src="assets/17.png" alt="movie picture" />
-          </div>
-          <div class="col mb-2 text-center px-1">
-            <img class="img-fluid" src="assets/18.png" alt="movie picture" />
-          </div>
-        </div> -->
         <footer>
           <div class="row justify-content-center mt-5">
             <div class="col col-6">
@@ -389,5 +328,16 @@ $searchVisible = false;
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
+    <script>
+      const searchBtn = document.getElementById("searchIcon")
+      const searchForm = document.getElementById("searchForm")
+      searchBtn.addEventListener("click", () => {
+        if(searchForm.classList.contains("d-none")){
+          searchBtn.classList.remove("d-none")
+        } else {
+          searchBtn.classList.add("d-none")
+        }
+      })
+    </script>
   </body>
 </html>
