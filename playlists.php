@@ -30,6 +30,8 @@ if(isset($_SESSION['user_id'])) {
     ':search' => "%$search%"
   ]);
 
+  $stmt->fetchAll();
+
   $playlists = $pdo->prepare('SELECT * FROM playlists WHERE playlist_id = ?');
   $playlists->execute([
     $playlistId,
