@@ -30,7 +30,7 @@ if(isset($_SESSION['user_id'])) {
     ':search' => "%$search%"
   ]);
 
-  $stmt->fetchAll();
+  $movies = $stmt->fetchAll();
 
   $playlists = $pdo->prepare('SELECT * FROM playlists WHERE playlist_id = ?');
   $playlists->execute([
@@ -217,7 +217,7 @@ if(isset($_SESSION['user_id'])) {
           class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-6 mb-4"
         >
         <?php 
-        foreach($stmt as $row) {
+        foreach($movies as $movie) {
           echo 
           "<div class='col mb-2 text-center px-1'>
           <a href='http://localhost/progetto-netflix-php/build-week5/moviedetails.php?id={$row['movie_id']}'>
