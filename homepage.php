@@ -105,6 +105,7 @@ if(isset($_SESSION['user_id'])) {
 
       .col img:hover {
         transform: scale(1.1);
+        cursor: pointer;
       }
     </style>
     <title>Epiflix</title>
