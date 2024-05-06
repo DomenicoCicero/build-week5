@@ -25,6 +25,9 @@ if(isset($_SESSION['user_id'])) {
     "%$search%",
     "%$selectedGenre%"
   ]);
+
+  $playlists = $pdo->prepare('SELECT * FROM playlists');
+  $playlists->execute();
 }
 
 ?>
@@ -156,7 +159,25 @@ if(isset($_SESSION['user_id'])) {
                 <a class="nav-link fw-bold" href="#">Recently Added</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link fw-bold" href="#">My List</a>
+              <div class="dropdown ms-4 mt-1">
+                <button
+                  type="button"
+                  class="btn btn-secondary btn-sm dropdown-toggle rounded-0"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  style="background-color: #221f1f"
+                >
+                  My Playlists
+                </button>
+                <ul class="dropdown-menu">
+                  <?php foreach($playlists as $row) {
+                    echo "<li><a class='dropdown-item' href='http://localhost/progetto-netflix-php/build-week5/playlists.php?playlistId=".urlencode($row['playlist_id'])."'>$row[name]</a></li>";
+                  } ?>
+                  <!-- <li><a class="dropdown-item" href="#">Comedy</a></li>
+                  <li><a class="dropdown-item" href="#">Drama</a></li>
+                  <li><a class="dropdown-item" href="#">Thriller</a></li> -->
+                </ul>
+              </div>
               </li>
             </ul>
             <div class="d-flex align-items-center">
