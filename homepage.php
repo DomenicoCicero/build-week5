@@ -152,6 +152,7 @@ if(isset($_SESSION['user_id'])) {
         foreach($stmt as $row) {
           echo 
           "<div class='col mb-2 text-center px-1'>
+          <a href='http://localhost/progetto-netflix-php/build-week5/moviedetails.php?id={$row['movie_id']}'>
             <img class='img-fluid custom-img' src='$row[cover_image_url]' alt='movie picture' />
           </div>";
           
