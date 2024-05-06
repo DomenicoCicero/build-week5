@@ -36,7 +36,7 @@ if(isset($_SESSION['user_id'])) {
   $playlists->execute([
     $playlistId,
   ]);
-  $playlists->fetch();
+  $playlist = $playlists->fetch();
 }
 
 ?>
@@ -212,12 +212,12 @@ if(isset($_SESSION['user_id'])) {
         </div>
       </nav>
       <div class="container-fluid px-4">
-        <h4><?= $playlists['name'] ?></h4>
+        <h4><?= $playlist['name'] ?></h4>
         <div
           class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-6 mb-4"
         >
         <?php 
-        foreach($movies as $movie) {
+        foreach($movies as $row) {
           echo 
           "<div class='col mb-2 text-center px-1'>
           <a href='http://localhost/progetto-netflix-php/build-week5/moviedetails.php?id={$row['movie_id']}'>
