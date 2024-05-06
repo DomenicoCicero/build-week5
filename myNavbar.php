@@ -9,7 +9,7 @@ session_start();
 ?>
 
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -53,7 +53,7 @@ session_start();
       }
     </style>
 </head>
-<body>
+<body> -->
 <nav
  class="navbar navbar-expand-lg bg-dark"
         data-bs-theme="dark"
@@ -110,5 +110,5 @@ session_start();
         </div>
       </nav>
     
-</body>
-</html>
+<!-- </body>
+</html> -->
