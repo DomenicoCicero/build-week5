@@ -84,7 +84,7 @@
   </head>
   <body>
     <div>
-     <?= include __DIR__ . "./myNavbar.php"; ?>
+     <?= include __DIR__ . "/myNavbar.php"; ?>
       <div class="container-fluid px-4">
         <div class="d-flex justify-content-between">
           <div class="d-flex">
