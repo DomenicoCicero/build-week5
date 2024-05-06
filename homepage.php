@@ -98,9 +98,12 @@ if(isset($_SESSION['user_id'])) {
       }
 
       .custom-img{
-        width: 50%;
-        height: 100%;
-        /* object-fit: cover; */
+        /* width: 50%;
+        height: 100%; */
+        
+        width: 301px;
+        height: 164px;
+        object-fit: cover;
       }
 
       .col img:hover {
