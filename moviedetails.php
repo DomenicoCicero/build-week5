@@ -156,7 +156,7 @@ if(isset($_SESSION['user_id'])) {
             <div class="col col-8 text-center">
                 <?php echo 
             "<div class='card'>
-            <h3 class='card-title'>$movie[title]</h3>
+            <h2 class='card-title'>$movie[title]</h2>
             
             <img src='$movie[cover_image_url]' class='card-img-top details-img mx-auto' alt='$movie[title]'>
             <div class ='card-body'>
