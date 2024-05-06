@@ -22,8 +22,8 @@ $playlistId = $_GET['playlistId'] ?? '';
 if(isset($_SESSION['user_id'])) {
   $stmt = $pdo->prepare(
     'SELECT * FROM movies 
-    JOIN playlist_movies ON movies.movie_id = playlist_movie.movie_id 
-    WHERE playlist_movie.playlist_id = :playlistId
+    JOIN playlist_movies ON movies.movie_id = playlist_movies.movie_id 
+    WHERE playlist_movies.playlist_id = :playlistId
     AND title LIKE :search');
   $stmt -> execute([
     ':playlistId' => $playlistId,
