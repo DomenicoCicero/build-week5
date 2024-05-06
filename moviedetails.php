@@ -109,6 +109,10 @@ if(isset($_SESSION['user_id'])) {
         object-fit: cover;
       } */
 
+      .details-img {
+        width: 350px;
+      }
+
       .col img:hover {
         transform: scale(1.1);
         cursor: pointer;
@@ -148,13 +152,13 @@ if(isset($_SESSION['user_id'])) {
           </div>
         </div>
         
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col col-10">
                 <?php echo 
             "<div class='card'>
             <h3 class='card-title'>$movie[title]</h3>
             
-            <img src='$movie[cover_image_url]' class='card-img-top' alt='$movie[title]'>
+            <img src='$movie[cover_image_url]' class='card-img-top details-img' alt='$movie[title]'>
             <div class ='card-body'>
             <p class ='card-text'>$movie[description]</p>
             <p class = 'card-text'><span class ='fw-semibold'>Anno di Rilascio</span> : $movie[release_year]</p>
