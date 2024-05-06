@@ -1,6 +1,26 @@
 <?php
 session_start();
 
+$host = 'localhost';
+$db = 'netflix_clone';
+$user = 'root';
+$pass = '';
+
+$dsn = "mysql:host=$host;dbname=$db";
+
+$options = [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES   => false,
+];
+
+$pdo = new PDO($dsn, $user, $pass, $options);
+
+if(isset($_SESSION['user_id'])) {
+  $stmt = $pdo->prepare('SELECT * FROM movies');
+  $stmt -> execute();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -118,10 +138,18 @@ session_start();
         <div
           class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-6 mb-4"
         >
-          <div class="col mb-2 text-center px-1">
-            <img class="img-fluid" src="assets/1.png" alt="movie picture" />
-          </div>
-          <div class="col mb-2 text-center px-1">
+        <?php 
+        foreach($stmt as $row) {
+          echo 
+          "<div class='col mb-2 text-center px-1'>
+            <img class='img-fluid' src='$row[cover_image_url]' alt='movie picture' />
+          </div>";
+          
+         
+        }
+        
+        ?>
+          <!-- <div class="col mb-2 text-center px-1">
             <img class="img-fluid" src="assets/2.png" alt="movie picture" />
           </div>
           <div class="col mb-2 text-center px-1">
@@ -135,9 +163,9 @@ session_start();
           </div>
           <div class="col mb-2 text-center px-1">
             <img class="img-fluid" src="assets/6.png" alt="movie picture" />
-          </div>
+          </div> -->
         </div>
-        <h4>Watch it Again</h4>
+        <!-- <h4>Watch it Again</h4>
         <div
           class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-6 mb-4"
         >
@@ -182,7 +210,7 @@ session_start();
           <div class="col mb-2 text-center px-1">
             <img class="img-fluid" src="assets/18.png" alt="movie picture" />
           </div>
-        </div>
+        </div> -->
         <footer>
           <div class="row justify-content-center mt-5">
             <div class="col col-6">
