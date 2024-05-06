@@ -156,7 +156,7 @@ $searchVisible = false;
               </li>
             </ul>
             <div class="d-flex align-items-center">
-             <form class="row g-3" id="searchForm">
+             <form class="row g-3 d-none" id="searchForm">
              <div class="col">
              <input type="text" name="search" class="form-control" placeholder="Cerca un titolo">
              </div>
@@ -330,12 +330,13 @@ $searchVisible = false;
     ></script>
     <script>
       const searchBtn = document.getElementById("searchIcon")
+      searchBtn.style.cursor = "pointer"
       const searchForm = document.getElementById("searchForm")
       searchBtn.addEventListener("click", () => {
         if(searchForm.classList.contains("d-none")){
-          searchBtn.classList.remove("d-none")
+          searchForm.classList.remove("d-none")
         } else {
-          searchBtn.classList.add("d-none")
+          searchForm.classList.add("d-none")
         }
       })
     </script>
