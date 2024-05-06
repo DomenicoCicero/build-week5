@@ -16,7 +16,7 @@ $options = [
 
 $pdo = new PDO($dsn, $user, $pass, $options);
 $search = $_GET['search'] ?? '';
-$selctedGenre = $_POST['genre'] ?? '';
+$selectedGenre = $_POST['genre'] ?? '';
 
 
 if(isset($_SESSION['user_id'])) {
