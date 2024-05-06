@@ -99,7 +99,7 @@ if(isset($_SESSION['user_id'])) {
 
       .custom-img{
         width: 50%;
-        height: 60px;
+        height: 100%;
         /* object-fit: cover; */
       }
 
