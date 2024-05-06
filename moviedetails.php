@@ -23,7 +23,11 @@ if(isset($_SESSION['user_id'])) {
         $movie_id
     ]);
     $movie = $stmt->fetch();
+
+    $playlists = $pdo->prepare('SELECT * FROM playlists');
+    $playlists->execute();
 }
+
 
 ?>
 
@@ -124,11 +128,11 @@ if(isset($_SESSION['user_id'])) {
     <div>
      <?= include __DIR__ . "/myNavbar.php"; ?>
       <div class="container-fluid px-4">
-        <!-- <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-between">
           <div class="d-flex">
             <h2 class="mb-4">TV Shows</h2>
             <div class="btn-group" role="group">
-              <div class="dropdown ms-4 mt-1">
+              <!-- <div class="dropdown ms-4 mt-1">
                 <button
                   type="button"
                   class="btn btn-secondary btn-sm dropdown-toggle rounded-0"
@@ -143,14 +147,25 @@ if(isset($_SESSION['user_id'])) {
                   <li><a class="dropdown-item" href="#">Drama</a></li>
                   <li><a class="dropdown-item" href="#">Thriller</a></li>
                 </ul>
-              </div>
+              </div> -->
+              <form method="post">
+              <select name="playlists" id="playlists">
+                <?php foreach($playlists as $row){
+                  echo "<option value='$row[name]'>$row[name]</option>";
+                } ?>
+              <!-- <option value="">Tutti i Generi</option>
+              <option value="Azione">Azione</option> -->
+        <!-- Altre opzioni di genere... -->
+    </select>
+    <button type="submit">Cerca per genere</button>
+</form>
             </div>
           </div>
           <div>
             <i class="bi bi-grid icons"></i>
             <i class="bi bi-grid-3x3 icons"></i>
           </div>
-        </div> -->
+        </div>
         
         <div class="row justify-content-center">
             <div class="col col-8 text-center">
