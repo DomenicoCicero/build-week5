@@ -207,11 +207,18 @@ if(isset($_SESSION['user_id'])) {
               </div> -->
               <form method="post">
               <select name="genre" id="genre">
-              <option value="<?= $selectedGenre ?>"><?= $selectedGenre === "" ? "Tutti i generi" : $selectedGenre ?></option>
+              <option value="<?= $selectedGenre ?>"><?= $selectedGenre === "" ? "Tutti i Generi" : $selectedGenre ?></option>
               <option value="">Tutti i Generi</option>
               <option value="Azione">Azione</option>
               <option value="Fantascienza">Fantascienza</option>
               <option value="Thriller">Thriller</option>
+              <option value="Crimine">Crimine</option>
+              <option value="Drammatico">Drammatico</option>
+              <option value="Avventura">Avventura</option>
+              <option value="Fantasy">Fantasy</option>
+              <option value="Biografia">Biografia</option>
+              <option value="Storico">Storico</option>
+              <option value="Mistero">Mistero</option>
         <!-- Altre opzioni di genere... -->
     </select>
     <button type="submit">Cerca per genere</button>
