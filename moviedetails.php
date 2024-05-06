@@ -161,6 +161,7 @@ if(isset($_SESSION['user_id'])) {
             <p class = 'card-text'><span class ='fw-semibold'>Durata</span> : $movie[duration_minutes]</p>
             <p class = 'card-text'><span class ='fw-semibold'>Genere</span> : $movie[genre]</p>
             <p class = 'card-text'><span class ='fw-semibold'>Director</span> : $movie[director]</p>
+            <a href='$movie[trailer_url]'>Guarda il trailer</a>
 
             </div>
             </div>"
