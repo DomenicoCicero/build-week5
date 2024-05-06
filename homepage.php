@@ -173,9 +173,6 @@ if(isset($_SESSION['user_id'])) {
                   <?php foreach($playlists as $row) {
                     echo "<li><a class='dropdown-item' href='http://localhost/progetto-netflix-php/build-week5/playlists.php?playlistId=".urlencode($row['playlist_id'])."'>$row[name]</a></li>";
                   } ?>
-                  <!-- <li><a class="dropdown-item" href="#">Comedy</a></li>
-                  <li><a class="dropdown-item" href="#">Drama</a></li>
-                  <li><a class="dropdown-item" href="#">Thriller</a></li> -->
                 </ul>
               </div>
               </li>
