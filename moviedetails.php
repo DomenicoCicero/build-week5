@@ -22,6 +22,7 @@ if(isset($_SESSION['user_id'])) {
     $stmt-> execute([
         $movie_id
     ]);
+    $movie = $stmt->fetch();
 }
 
 ?>
@@ -151,15 +152,15 @@ if(isset($_SESSION['user_id'])) {
             <div class="col col-10">
                 <?php echo 
             "<div class='card'>
-            <h3 class='card-title'>$stmt[title]</h3>
+            <h3 class='card-title'>$movie[title]</h3>
             
-            <img src='$stmt[cover_image_url]' class='card-img-top' alt='$stmt[title]'>
+            <img src='$movie[cover_image_url]' class='card-img-top' alt='$movie[title]'>
             <div class ='card-body'>
-            <p class ='card-text'>$stmt[description]</p>
-            <p class = 'card-text'><span class ='fw-semibold'>Anno di Rilascio</span> : $stmt[release_year]</p>
-            <p class = 'card-text'><span class ='fw-semibold'>Durata</span> : $stmt[duration_minutes]</p>
-            <p class = 'card-text'><span class ='fw-semibold'>Genere</span> : $stmt[genre]</p>
-            <p class = 'card-text'><span class ='fw-semibold'>Director</span> : $stmt[director]</p>
+            <p class ='card-text'>$movie[description]</p>
+            <p class = 'card-text'><span class ='fw-semibold'>Anno di Rilascio</span> : $movie[release_year]</p>
+            <p class = 'card-text'><span class ='fw-semibold'>Durata</span> : $movie[duration_minutes]</p>
+            <p class = 'card-text'><span class ='fw-semibold'>Genere</span> : $movie[genre]</p>
+            <p class = 'card-text'><span class ='fw-semibold'>Director</span> : $movie[director]</p>
 
             </div>
             </div>"
