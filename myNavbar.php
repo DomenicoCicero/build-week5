@@ -101,7 +101,7 @@ session_start();
                             <i class="bi bi-person-circle icons"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end text-small" aria-labelledby="dropdownUser1" style="background-color: white;">
-                            <li><a class="dropdown-item" href="http://localhost/progetto-netflix-php/build-week5/logout.php" style="color: white;">Esci</a></li>
+                            <li><a class="dropdown-item" href="http://localhost/progetto-netflix-php/build-week5/logout.php" style="color: #f5f5f1;">Esci</a></li>
                         </ul>
                     </div>
               <!-- <a href="http://localhost/progetto-netflix-php/build-week5/logout.php"><i class="bi bi-person-circle icons"></i></a> -->
