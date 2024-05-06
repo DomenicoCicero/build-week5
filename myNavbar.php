@@ -1,11 +1,11 @@
 <?php
 session_start();
 
-if (isset($_SESSION['user_id'])) {
-  echo $_SESSION['user_id'];
-} else {
-  echo "User ID not set.";
-}
+// if (isset($_SESSION['user_id'])) {
+//   echo $_SESSION['user_id'];
+// } else {
+//   echo "User ID not set.";
+// }
 ?>
 
 
@@ -96,7 +96,15 @@ if (isset($_SESSION['user_id'])) {
               <i class="bi bi-search icons"></i>
               <div id="kids" class="fw-bold">KIDS</div>
               <i class="bi bi-bell icons"></i>
-              <a href="http://localhost/progetto-netflix-php/build-week5/logout.php"><i class="bi bi-person-circle icons"></i></a>
+              <div class="dropdown">
+                        <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-circle icons"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end text-small" aria-labelledby="dropdownUser1" style="background-color: #221f1f;">
+                            <li><a class="dropdown-item" href="http://localhost/progetto-netflix-php/build-week5/logout.php" style="color: #f5f5f1;">Esci</a></li>
+                        </ul>
+                    </div>
+              <!-- <a href="http://localhost/progetto-netflix-php/build-week5/logout.php"><i class="bi bi-person-circle icons"></i></a> -->
             </div>
           </div>
         </div>

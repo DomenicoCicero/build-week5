@@ -67,12 +67,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 }
 
-if (isset($_SESSION['user_id'])) {
-    echo $_SESSION['user_id'];
-  } else {
-    echo "User ID not set.";
-  }
-
 ?>
 
 <!DOCTYPE html>
