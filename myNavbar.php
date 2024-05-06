@@ -1,50 +1,4 @@
 
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navbar</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
-    <style>
-              body {
-        background-color: #221f1f;
-      }
-
-      h2,
-      h4{
-        color: #f5f5f1;
-      }
-
-      .icons {
-        margin-left: 0.8em;
-        margin-right: 0.8em;
-        font-size: 1.2em;
-        color: #f5f5f1;
-      }
-
-      .navbar-nav {
-        font-size: 90%;
-      }
-
-      #kids {
-        color: #f5f5f1;
-        font-size: 0.8em;
-      }
-    </style>
-</head>
-<body> -->
 <nav
  class="navbar navbar-expand-lg bg-dark"
         data-bs-theme="dark"
@@ -100,6 +54,3 @@
           </div>
         </div>
       </nav>
-    
-<!-- </body>
-</html> -->
