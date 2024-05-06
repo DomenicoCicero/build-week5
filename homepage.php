@@ -207,6 +207,7 @@ if(isset($_SESSION['user_id'])) {
               </div> -->
               <form method="post">
               <select name="genre" id="genre">
+              <option value="<?= $selectedGenre ?>"><?= $selectedGenre === "" ? "Tutti i generi" : $selectedGenre ?></option>
               <option value="">Tutti i Generi</option>
               <option value="Azione">Azione</option>
               <option value="Fantascienza">Fantascienza</option>
