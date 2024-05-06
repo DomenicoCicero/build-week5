@@ -15,9 +15,10 @@ $options = [
 ];
 
 $pdo = new PDO($dsn, $user, $pass, $options);
+$movie_id = $_GET['id'];
+$selectedPlaylist = $_POST['playlists'] ?? '';
 
 if(isset($_SESSION['user_id'])) {
-    $movie_id = $_GET['id'];
     $stmt = $pdo->prepare('SELECT * FROM movies WHERE movie_id = ?');
     $stmt-> execute([
         $movie_id
@@ -26,6 +27,15 @@ if(isset($_SESSION['user_id'])) {
 
     $playlists = $pdo->prepare('SELECT * FROM playlists');
     $playlists->execute();
+}
+
+if(isset($_POST['playlists'])){
+
+  $addToPlaylist = $pdo->prepare('INSERT INTO playlist_movies (playlist_id, movie_id) VALUES (:playlist_id, :movie_id)');
+  $addToPlaylist->execute([
+   'playlist_id' => $selectedPlaylist,
+   'movie_id' => $movie_id
+  ]);
 }
 
 
@@ -151,13 +161,13 @@ if(isset($_SESSION['user_id'])) {
               <form method="post">
               <select name="playlists" id="playlists">
                 <?php foreach($playlists as $row){
-                  echo "<option value='$row[name]'>$row[name]</option>";
+                  echo "<option value='$row[playlist_id]'>$row[name]</option>";
                 } ?>
               <!-- <option value="">Tutti i Generi</option>
               <option value="Azione">Azione</option> -->
         <!-- Altre opzioni di genere... -->
     </select>
-    <button type="submit">Cerca per genere</button>
+    <button type="submit">Aggiungi</button>
 </form>
             </div>
           </div>
