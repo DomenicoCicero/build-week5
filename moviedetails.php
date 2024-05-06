@@ -124,7 +124,7 @@ if(isset($_SESSION['user_id'])) {
     <div>
      <?= include __DIR__ . "/myNavbar.php"; ?>
       <div class="container-fluid px-4">
-        <div class="d-flex justify-content-between">
+        <!-- <div class="d-flex justify-content-between">
           <div class="d-flex">
             <h2 class="mb-4">TV Shows</h2>
             <div class="btn-group" role="group">
@@ -150,7 +150,7 @@ if(isset($_SESSION['user_id'])) {
             <i class="bi bi-grid icons"></i>
             <i class="bi bi-grid-3x3 icons"></i>
           </div>
-        </div>
+        </div> -->
         
         <div class="row justify-content-center">
             <div class="col col-8 text-center">
