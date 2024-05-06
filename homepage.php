@@ -97,6 +97,12 @@ if(isset($_SESSION['user_id'])) {
         transition: transform 0.2s;
       }
 
+      .custom-img{
+        width: 50%;
+        height: 60px;
+        object-fit: cover;
+      }
+
       .col img:hover {
         transform: scale(1.1);
       }
@@ -142,7 +148,7 @@ if(isset($_SESSION['user_id'])) {
         foreach($stmt as $row) {
           echo 
           "<div class='col mb-2 text-center px-1'>
-            <img class='img-fluid' src='$row[cover_image_url]' alt='movie picture' />
+            <img class='img-fluid custom-img' src='$row[cover_image_url]' alt='movie picture' />
           </div>";
           
          
