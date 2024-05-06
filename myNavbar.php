@@ -1,4 +1,8 @@
+<?php
 
+$searchVisible = false;
+
+?>
 <nav
  class="navbar navbar-expand-lg bg-dark"
         data-bs-theme="dark"
@@ -38,7 +42,7 @@
               </li>
             </ul>
             <div class="d-flex align-items-center">
-              <i class="bi bi-search icons"></i>
+              <i class="bi bi-search icons" onclick="<?= $searchVisible = !$searchVisible ?>"></i>
               <div id="kids" class="fw-bold">KIDS</div>
               <i class="bi bi-bell icons"></i>
               <div class="dropdown">
