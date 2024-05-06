@@ -16,12 +16,14 @@ $options = [
 
 $pdo = new PDO($dsn, $user, $pass, $options);
 $search = $_GET['search'] ?? '';
+$selctedGenre = $_POST['genre'] ?? '';
 
 
 if(isset($_SESSION['user_id'])) {
-  $stmt = $pdo->prepare('SELECT * FROM movies WHERE title LIKE ?');
+  $stmt = $pdo->prepare('SELECT * FROM movies WHERE title LIKE ? AND genre LIKE ?');
   $stmt -> execute([
-    "%$search%"
+    "%$search%",
+    "%$selectedGenre%"
   ]);
 }
 
@@ -203,9 +205,9 @@ if(isset($_SESSION['user_id'])) {
                   <li><a class="dropdown-item" href="#">Thriller</a></li>
                 </ul>
               </div> -->
-              <form method="post" action="ricerca_per_genere.php">
-              <label for="genre">Seleziona il genere:</label>
+              <form method="post">
               <select name="genre" id="genre">
+              <option value="">Tutti i Generi</option>
               <option value="Azione">Azione</option>
               <option value="Fantascienza">Fantascienza</option>
               <option value="Thriller">Thriller</option>
