@@ -187,7 +187,7 @@ if(isset($_SESSION['user_id'])) {
           <div class="d-flex">
             <h2 class="mb-4">TV Shows</h2>
             <div class="btn-group" role="group">
-              <div class="dropdown ms-4 mt-1">
+              <!-- <div class="dropdown ms-4 mt-1">
                 <button
                   type="button"
                   class="btn btn-secondary btn-sm dropdown-toggle rounded-0"
@@ -202,7 +202,17 @@ if(isset($_SESSION['user_id'])) {
                   <li><a class="dropdown-item" href="#">Drama</a></li>
                   <li><a class="dropdown-item" href="#">Thriller</a></li>
                 </ul>
-              </div>
+              </div> -->
+              <form method="post" action="ricerca_per_genere.php">
+              <label for="genre">Seleziona il genere:</label>
+              <select name="genre" id="genre">
+              <option value="Azione">Azione</option>
+              <option value="Fantascienza">Fantascienza</option>
+              <option value="Thriller">Thriller</option>
+        <!-- Altre opzioni di genere... -->
+    </select>
+    <button type="submit">Cerca per genere</button>
+</form>
             </div>
           </div>
           <div>
