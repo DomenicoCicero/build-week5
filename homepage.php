@@ -15,13 +15,15 @@ $options = [
 ];
 
 $pdo = new PDO($dsn, $user, $pass, $options);
+$search = $_GET['search'] ?? '';
+
 
 if(isset($_SESSION['user_id'])) {
-  $stmt = $pdo->prepare('SELECT * FROM movies');
-  $stmt -> execute();
+  $stmt = $pdo->prepare('SELECT * FROM movies WHERE title LIKE ?');
+  $stmt -> execute([
+    "%$search%"
+  ]);
 }
-
-$searchVisible = false;
 
 ?>
 
