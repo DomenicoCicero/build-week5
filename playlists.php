@@ -221,7 +221,10 @@ if(isset($_SESSION['user_id'])) {
         </div>
       </nav>
       <div class="container-fluid px-4">
+        <div class="d-flex justify-content-between">
         <h4><?= $playlist['name'] ?></h4>
+        <a class='btn btn-danger' href=''>Elimina Playlist</a>
+        </div>
         <div
           class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-6 mb-4"
         >
