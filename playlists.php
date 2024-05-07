@@ -49,14 +49,18 @@ if(isset($_SESSION['user_id'])) {
   $playlists =$stmt->fetchAll();
 
   if(isset($_POST['edit'])) {
-    $stmtEdit = $pdo-> prepare('UPDATE playlists SET name = :name WHERE playlist_id = :playlist_id');
-    $stmtEdit -> execute([
+    // Aggiorna il nome della playlist nel database
+    $stmtEdit = $pdo->prepare('UPDATE playlists SET name = :name WHERE playlist_id = :playlist_id');
+    $stmtEdit->execute([
       ':name' =>  $edit,
-      ':playlist_id'=> $playlistId
+      ':playlist_id' => $playlistId
     ]);
+
+    // Reindirizza l'utente alla stessa pagina con l'ID della playlist
+    header("Location: http://localhost/progetto-netflix-php/build-week5/playlists.php?playlistId=$playlistId");
+    exit;
   }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -235,7 +239,7 @@ if(isset($_SESSION['user_id'])) {
         <div>
         <form class="row g-3 d-none" id="putForm" method="post">
              <div class="col">
-             <input type="text" name="edit" class="form-control" placeholder="Modifica Playlist">
+             <input type="text" name="edit" class="form-control" placeholder="Modifica Playlist" value="<?= $playlist['name']?>">
              </div>
              <div class="col-auto">
              <button type="submit" class="btn btn-primary mb-3">Modifica</button>
