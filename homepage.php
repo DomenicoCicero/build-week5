@@ -130,7 +130,7 @@ if(isset($_SESSION['user_id'])) {
         style="background-color: #221f1f !important"
       >
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"
+          <a class="navbar-brand" href="http://localhost/progetto-netflix-php/build-week5/homepage.php"
             ><img src="assets/logo.png" style="width: 100px; height: 55px"
           /></a>
           <button
