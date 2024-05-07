@@ -35,8 +35,8 @@ if(isset($_SESSION['user_id'])) {
 }
 
 if(isset($_POST['add-playlist'])) {
-  $stmt = $pdo->prepare('INSERT INTO playlists (user_id, name) VALUES (?, ?)');
-  $stmt->execute([
+  $add = $pdo->prepare('INSERT INTO playlists (user_id, name) VALUES (?, ?)');
+  $add->execute([
     $userId,
     $addPlaylist
   ]);
