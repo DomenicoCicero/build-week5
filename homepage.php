@@ -28,10 +28,14 @@ if(isset($_SESSION['user_id'])) {
     "%$selectedGenre%"
   ]);
 
-  $playlists = $pdo->prepare('SELECT * FROM playlists WHERE user_id = ? ');
-  $playlists->execute([
+  $movies = $stmt->fetchAll();
+
+  $stmtPlaylists = $pdo->prepare('SELECT * FROM playlists WHERE user_id = ? ');
+  $stmtPlaylists->execute([
     $userId
   ]);
+
+  $playlists = $stmtPlaylists->fetchAll();
 }
 
 if(isset($_POST['add-playlist'])) {
@@ -264,14 +268,18 @@ if(isset($_POST['add-playlist'])) {
           class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-6 mb-4"
         >
         <?php 
-        foreach($stmt as $row) {
-          echo 
-          "<div class='col mb-2 text-center px-1'>
-          <a href='http://localhost/progetto-netflix-php/build-week5/moviedetails.php?id={$row['movie_id']}'>
-            <img class='img-fluid custom-img' src='$row[cover_image_url]' alt='movie picture' />
-            </a>
-          </div>";
-        }
+          if(count($movies) > 0) {
+           foreach($movies as $row) {
+           echo 
+           "<div class='col mb-2 text-center px-1'>
+           <a href='http://localhost/progetto-netflix-php/build-week5/moviedetails.php?id={$row['movie_id']}'>
+             <img class='img-fluid custom-img' src='$row[cover_image_url]' alt='movie picture' />
+             </a>
+           </div>";                 
+         } 
+           } else {
+               echo "<p class='text-white error-message my-3'>Nessun Contenuto</p>";
+          };
         
         ?>
         </div>
