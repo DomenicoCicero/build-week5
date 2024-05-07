@@ -178,12 +178,12 @@ if(isset($_SESSION['user_id'])) {
                 >
                   My Playlists
                 </button>
-                <ul class="dropdown-menu">
-  <li><a class='dropdown-item' href='?playlistId='>Tutte le playlist</a></li>
+                <select onchange="location = this.value;">
+  <option value="?playlistId=">Tutte le playlist</option>
   <?php foreach($playlists as $row) {
-    echo "<li><a class='dropdown-item' href='?playlistId=".urlencode($row['playlist_id'])."'>$row[name]</a></li>";
+    echo "<option value='?playlistId=".urlencode($row['playlist_id'])."'>$row[name]</option>";
   } ?>
-</ul>
+</select>
               </div>
               </li>
             </ul>
