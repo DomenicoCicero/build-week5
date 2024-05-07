@@ -18,7 +18,7 @@ $pdo = new PDO($dsn, $user, $pass, $options);
 $search = $_GET['search'] ?? '';
 $selectedGenre = $_POST['genre'] ?? '';
 $userId = $_SESSION['user_id'] ?? '';
-$addPlaylist = $_GET['add-playlist'] ?? '';
+$addPlaylist = $_POST['add-playlist'] ?? '';
 
 
 if(isset($_SESSION['user_id'])) {
@@ -34,7 +34,7 @@ if(isset($_SESSION['user_id'])) {
   ]);
 }
 
-if(isset($_GET['add-playlist'])) {
+if(isset($_POST['add-playlist'])) {
   $stmt = $pdo->prepare('INSERT INTO playlists (user_id, name) VALUES (?, ?)');
   $stmt->execute([
     $userId,
@@ -247,7 +247,7 @@ if(isset($_GET['add-playlist'])) {
           <div>
             <span class="add-playlist" id="plus-playlist"><i class="bi bi-plus-circle"></i> Crea Nuova Playlist</span>
           
-          <form class="row g-3 d-none" id="add-playlist">
+          <form class="row g-3 d-none" id="add-playlist" method="POST">
              <div class="col">
              <input type="text" name="add-playlist" class="form-control" placeholder="Aggiungi Playlist">
              </div>
