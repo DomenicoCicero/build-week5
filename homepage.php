@@ -40,6 +40,8 @@ if(isset($_POST['add-playlist'])) {
     $userId,
     $addPlaylist
   ]);
+  header("Location: http://localhost/progetto-netflix-php/build-week5/homepage.php");
+  exit;
 }
 
 ?>
