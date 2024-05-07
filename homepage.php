@@ -231,8 +231,16 @@ if(isset($_SESSION['user_id'])) {
             </div>
           </div>
           <div>
-            <i class="bi bi-grid icons"></i>
-            <i class="bi bi-grid-3x3 icons"></i>
+            <span id="plus-playlist"><i class="bi bi-plus-circle"></i> Crea Nuova Playlist</span>
+          
+          <form class="row g-3 d-none" id="add-playlist">
+             <div class="col">
+             <input type="text" name="add-playlist" class="form-control" placeholder="Aggiungi Playlist">
+             </div>
+             <div class="col-auto">
+             <button type="submit" class="btn btn-primary mb-3">Aggiungi</button>
+        </div>
+    </form>
           </div>
         </div>
         <h4>Trending Now</h4>
@@ -364,6 +372,17 @@ if(isset($_SESSION['user_id'])) {
           searchForm.classList.remove("d-none")
         } else {
           searchForm.classList.add("d-none")
+        }
+      })
+
+      const addPlaylistBtn = document.getElementById("plus-playlist")
+      addPlaylistBtn.style.cursor = "pointer"
+      const addPlaylistForm = document.getElementById("add-playlist")
+      addPlaylistBtn.addEventListener("click", () => {
+        if(addPlaylistForm.contains("d-none")) {
+          addPlaylistForm.classList.remove("d-none")
+        } else {
+          addPlaylistForm.classList.add("d-none")
         }
       })
     </script>
