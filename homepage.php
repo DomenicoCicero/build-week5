@@ -17,6 +17,7 @@ $options = [
 $pdo = new PDO($dsn, $user, $pass, $options);
 $search = $_GET['search'] ?? '';
 $selectedGenre = $_POST['genre'] ?? '';
+$userId = $_SESSION['user_id'] ?? '';
 
 
 if(isset($_SESSION['user_id'])) {
@@ -26,8 +27,10 @@ if(isset($_SESSION['user_id'])) {
     "%$selectedGenre%"
   ]);
 
-  $playlists = $pdo->prepare('SELECT * FROM playlists');
-  $playlists->execute();
+  $playlists = $pdo->prepare('SELECT * FROM playlists WHERE user_id = ? ');
+  $playlists->execute([
+    $userId
+  ]);
 }
 
 ?>
