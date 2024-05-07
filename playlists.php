@@ -18,6 +18,7 @@ $pdo = new PDO($dsn, $user, $pass, $options);
 $search = $_GET['search'] ?? '';
 $playlistId = $_GET['playlistId'] ?? '';
 $userId = $_SESSION['user_id'] ?? '';
+$edit = $_POST['edit'] ?? '';
 
 
 if(isset($_SESSION['user_id'])) {
@@ -46,6 +47,14 @@ if(isset($_SESSION['user_id'])) {
     $userId
   ]);
   $playlists =$stmt->fetchAll();
+
+  if(isset($_POST['edit'])) {
+    $stmtEdit = $pdo-> prepare('UPDATE playlists SET name = :name WHERE playlist_id = :playlist_id');
+    $stmtEdit -> execute([
+      ':name' =>  $edit,
+      ':playlist_id'=> $playlistId
+    ]);
+  }
 }
 
 ?>
@@ -224,7 +233,7 @@ if(isset($_SESSION['user_id'])) {
         <div class="d-flex justify-content-between">
         <h4><?= $playlist['name'] ?></h4>
         <div>
-        <form class="row g-3 d-none" id="putForm">
+        <form class="row g-3 d-none" id="putForm" method="post">
              <div class="col">
              <input type="text" name="edit" class="form-control" placeholder="Modifica Playlist">
              </div>
