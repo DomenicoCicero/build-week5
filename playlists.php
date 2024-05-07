@@ -180,7 +180,7 @@ if(isset($_SESSION['user_id'])) {
                 </button>
                 <ul class="dropdown-menu">
                   <?php foreach($playlists as $row) {
-                    echo "<li><a class='dropdown-item' href='http://localhost/progetto-netflix-php/build-week5/playlists.php?playlistId=".urlencode($row['playlist_id'])."'>$row[name]</a></li>";
+                    echo "<li><a class='dropdown-item' href='?playlistId=".urlencode($row['playlist_id'])."'>$row[name]</a></li>";
                   } ?>
                 </ul>
               </div>
