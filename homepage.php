@@ -384,7 +384,7 @@ if(isset($_SESSION['user_id'])) {
       addPlaylistBtn.style.cursor = "pointer"
       const addPlaylistForm = document.getElementById("add-playlist")
       addPlaylistBtn.addEventListener("click", () => {
-        if(addPlaylistForm.contains("d-none")) {
+        if(addPlaylistForm.classList.contains("d-none")) {
           addPlaylistForm.classList.remove("d-none")
         } else {
           addPlaylistForm.classList.add("d-none")
