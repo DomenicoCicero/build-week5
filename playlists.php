@@ -150,6 +150,11 @@ if(isset($_SESSION['user_id'])) {
         transform: scale(1.1);
         cursor: pointer;
       }
+
+      .error-message {
+        color: #f5f5f1;
+        font-size: 0.8em;
+      }
     </style>
     <title>Epiflix</title>
   </head>
@@ -253,6 +258,7 @@ if(isset($_SESSION['user_id'])) {
           class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-6 mb-4"
         >
         <?php 
+        if(count($movies) > 0) {
         foreach($movies as $row) {
           echo 
           "
@@ -263,9 +269,11 @@ if(isset($_SESSION['user_id'])) {
           </div>
           <a class='btn btn-danger' href='http://localhost/progetto-netflix-php/build-week5/deleteMovieFromPlaylist.php?movieId=".urlencode($row['movie_id'])."&playlistId=".urlencode($playlistId)."'>Elimina</a>
           </div>";
-          
-         
-        }
+                   
+        } 
+        } else {
+          echo "<p class='text-white error-message my-3'>Nessun Contenuto</p>";
+        };
         
         ?>
         </div>
