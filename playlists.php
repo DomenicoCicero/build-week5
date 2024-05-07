@@ -17,6 +17,7 @@ $options = [
 $pdo = new PDO($dsn, $user, $pass, $options);
 $search = $_GET['search'] ?? '';
 $playlistId = $_GET['playlistId'] ?? '';
+$userId = $_SESSION['user_id'] ?? '';
 
 
 if(isset($_SESSION['user_id'])) {
@@ -32,9 +33,10 @@ if(isset($_SESSION['user_id'])) {
 
   $movies = $stmt->fetchAll();
 
-  $playlists = $pdo->prepare('SELECT * FROM playlists WHERE playlist_id = ?');
+  $playlists = $pdo->prepare('SELECT * FROM playlists WHERE playlist_id = ? AND user_id = ?');
   $playlists->execute([
     $playlistId,
+    $userId
   ]);
   $playlist = $playlists->fetch();
 }
