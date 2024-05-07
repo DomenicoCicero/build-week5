@@ -232,7 +232,7 @@ if(isset($_SESSION['user_id'])) {
         foreach($movies as $row) {
           echo 
           "
-          <div class='d-flex flex-column'>
+          <div class='d-flex flex-column my-2'>
           <div class='col mb-2 text-center px-1'>
           <a href='http://localhost/progetto-netflix-php/build-week5/moviedetails.php?id={$row['movie_id']}'>
             <img class='img-fluid custom-img' src='$row[cover_image_url]' alt='movie picture' />
