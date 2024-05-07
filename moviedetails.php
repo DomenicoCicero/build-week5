@@ -18,6 +18,7 @@ $pdo = new PDO($dsn, $user, $pass, $options);
 $movie_id = $_GET['id'];
 $selectedPlaylist = $_POST['playlists'] ?? '';
 $userId = $_SESSION['user_id'];
+$addPlaylist = $_POST['add-playlist'] ?? '';
 
 if(isset($_SESSION['user_id'])) {
     $stmt = $pdo->prepare('SELECT * FROM movies WHERE movie_id = ?');
@@ -38,6 +39,14 @@ if(isset($_POST['playlists'])){
   $addToPlaylist->execute([
    'playlist_id' => $selectedPlaylist,
    'movie_id' => $movie_id
+  ]);
+}
+
+if(isset($_POST['add-playlist'])) {
+  $add = $pdo->prepare('INSERT INTO playlists (user_id, name) VALUES (?, ?)');
+  $add->execute([
+    $userId,
+    $addPlaylist
   ]);
 }
 
@@ -134,6 +143,11 @@ if(isset($_POST['playlists'])){
         transform: scale(1.1);
         cursor: pointer;
       }
+
+      .add-playlist {
+        color: #f5f5f1;
+        font-size: 0.8em;
+      }
     </style>
     <title>Epiflix</title>
   </head>
@@ -145,38 +159,27 @@ if(isset($_POST['playlists'])){
           <div class="d-flex">
             <h2 class="mb-4">TV Shows</h2>
             <div class="btn-group" role="group">
-              <!-- <div class="dropdown ms-4 mt-1">
-                <button
-                  type="button"
-                  class="btn btn-secondary btn-sm dropdown-toggle rounded-0"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                  style="background-color: #221f1f"
-                >
-                  Genres
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Comedy</a></li>
-                  <li><a class="dropdown-item" href="#">Drama</a></li>
-                  <li><a class="dropdown-item" href="#">Thriller</a></li>
-                </ul>
-              </div> -->
               <form method="post">
               <select name="playlists" id="playlists">
                 <?php foreach($playlists as $row){
                   echo "<option value='$row[playlist_id]'>$row[name]</option>";
                 } ?>
-              <!-- <option value="">Tutti i Generi</option>
-              <option value="Azione">Azione</option> -->
-        <!-- Altre opzioni di genere... -->
     </select>
     <button type="submit">Aggiungi</button>
 </form>
             </div>
           </div>
           <div>
-            <i class="bi bi-grid icons"></i>
-            <i class="bi bi-grid-3x3 icons"></i>
+          <span class="add-playlist" id="plus-playlist"><i class="bi bi-plus-circle"></i> Crea Nuova Playlist</span>
+          
+          <form class="row g-3 d-none" id="add-playlist" method="POST">
+             <div class="col">
+             <input type="text" name="add-playlist" class="form-control" placeholder="Aggiungi Playlist">
+             </div>
+             <div class="col-auto">
+             <button type="submit" class="btn btn-primary mb-3">Aggiungi</button>
+        </div>
+    </form>
           </div>
         </div>
         
@@ -209,5 +212,17 @@ if(isset($_POST['playlists'])){
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
+    <script>
+            const addPlaylistBtn = document.getElementById("plus-playlist")
+      addPlaylistBtn.style.cursor = "pointer"
+      const addPlaylistForm = document.getElementById("add-playlist")
+      addPlaylistBtn.addEventListener("click", () => {
+        if(addPlaylistForm.classList.contains("d-none")) {
+          addPlaylistForm.classList.remove("d-none")
+        } else {
+          addPlaylistForm.classList.add("d-none")
+        }
+      })
+    </script>
   </body>
 </html>
