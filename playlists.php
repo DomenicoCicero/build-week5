@@ -153,7 +153,7 @@ if(isset($_SESSION['user_id'])) {
 
       .error-message {
         color: #f5f5f1;
-        font-size: 0.8em;
+        font-size: 2em;
       }
     </style>
     <title>Epiflix</title>
