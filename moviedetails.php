@@ -17,6 +17,7 @@ $options = [
 $pdo = new PDO($dsn, $user, $pass, $options);
 $movie_id = $_GET['id'];
 $selectedPlaylist = $_POST['playlists'] ?? '';
+$userId = $_SESSION['user_id'];
 
 if(isset($_SESSION['user_id'])) {
     $stmt = $pdo->prepare('SELECT * FROM movies WHERE movie_id = ?');
@@ -25,8 +26,10 @@ if(isset($_SESSION['user_id'])) {
     ]);
     $movie = $stmt->fetch();
 
-    $playlists = $pdo->prepare('SELECT * FROM playlists');
-    $playlists->execute();
+    $playlists = $pdo->prepare('SELECT * FROM playlists WHERE user_id = ?');
+    $playlists->execute([
+      $userId
+    ]);
 }
 
 if(isset($_POST['playlists'])){
