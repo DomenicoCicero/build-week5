@@ -122,6 +122,11 @@ if(isset($_SESSION['user_id'])) {
         transform: scale(1.1);
         cursor: pointer;
       }
+
+      .add-playlist {
+        color: #f5f5f1;
+        font-size: 0.8em;
+      }
     </style>
     <title>Epiflix</title>
   </head>
@@ -231,7 +236,7 @@ if(isset($_SESSION['user_id'])) {
             </div>
           </div>
           <div>
-            <span id="plus-playlist"><i class="bi bi-plus-circle"></i> Crea Nuova Playlist</span>
+            <span class="add-playlist" id="plus-playlist"><i class="bi bi-plus-circle"></i> Crea Nuova Playlist</span>
           
           <form class="row g-3 d-none" id="add-playlist">
              <div class="col">
