@@ -276,7 +276,7 @@ if(isset($_POST['add-playlist'])) {
         
         ?>
         </div>
-        <?php include __DIR__ . "./footer.php" ?>
+        <?php include __DIR__ . "/footer.php" ?>
       </div>
     </div>
     <script
