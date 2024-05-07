@@ -223,7 +223,18 @@ if(isset($_SESSION['user_id'])) {
       <div class="container-fluid px-4">
         <div class="d-flex justify-content-between">
         <h4><?= $playlist['name'] ?></h4>
+        <div>
+        <form class="row g-3 d-none" id="putForm">
+             <div class="col">
+             <input type="text" name="edit" class="form-control" placeholder="Modifica Playlist">
+             </div>
+             <div class="col-auto">
+             <button type="submit" class="btn btn-primary mb-3">Modifica</button>
+        </div>
+    </form>
+          <button type="button" class="btn btn-primary" id="btn-put">Rinomina Playlist</button>
         <a class='btn btn-danger' href="http://localhost/progetto-netflix-php/build-week5/deletePlaylist.php?playlistId=<?= urlencode($playlistId) ?>">Elimina Playlist</a>
+        </div>
         </div>
         <div
           class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-6 mb-4"
@@ -357,6 +368,17 @@ if(isset($_SESSION['user_id'])) {
           searchForm.classList.remove("d-none")
         } else {
           searchForm.classList.add("d-none")
+        }
+      })
+
+      const btnPut = document.getElementById("btn-put")
+      const putForm = document.getElementById("putForm")
+      btnPut.addEventListener("click", () => {
+        if(putForm.classList.contains("d-none")) {
+          putForm.classList.remove("d-none")
+
+        } else {
+          putForm.classList.add("d-none")
         }
       })
     </script>
