@@ -234,7 +234,7 @@ if(isset($_SESSION['user_id'])) {
           <a href='http://localhost/progetto-netflix-php/build-week5/moviedetails.php?id={$row['movie_id']}'>
             <img class='img-fluid custom-img' src='$row[cover_image_url]' alt='movie picture' />
           </div>
-          <a class='btn btn-danger' href=''>Elimina</a>
+          <a class='btn btn-danger' href='http://localhost/progetto-netflix-php/build-week5/deleteMovieFromPlaylist?movieId=".urlencode($row['movie_id'])."&playlistId=".urlencode($playlistId)."'>Elimina</a>
           </div>";
           
          
