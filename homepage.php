@@ -278,7 +278,9 @@ if(isset($_POST['add-playlist'])) {
            </div>";                 
          } 
            } else {
-               echo "<p class='text-white error-message my-3'>Nessun Contenuto</p>";
+               echo "<div class='alert alert-danger' role='alert'>
+               Nessun Risultato trovato!
+             </div>";
           };
         
         ?>

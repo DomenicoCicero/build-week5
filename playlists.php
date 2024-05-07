@@ -271,9 +271,11 @@ if(isset($_SESSION['user_id'])) {
           </div>";
                    
         } 
-        } else {
-          echo "<p class='text-white error-message my-3'>Nessun Contenuto</p>";
-        };
+      } else {
+        echo "<div class='alert alert-danger' role='alert'>
+        Nessun Risultato trovato!
+        </div>";
+   };
         
         ?>
         </div>
