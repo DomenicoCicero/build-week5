@@ -38,9 +38,15 @@ if(isset($_SESSION['user_id'])) {
     $playlistId,
     $userId
   ]);
-  $playlist = $playlists->fetchAll();
-  var_dump($playlist);
-}
+  $playlist = $playlists->fetch();
+
+  $stmt = $pdo->prepare('SELECT * FROM playlists WHERE user_id = ?');
+  $stmt->execute([
+  
+    $userId
+  ]);
+  $playlists =$stmt->fetchAll();
+  
 
 ?>
 
