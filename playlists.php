@@ -179,10 +179,10 @@ if(isset($_SESSION['user_id'])) {
                   My Playlists
                 </button>
                 <ul class="dropdown-menu">
-                  <?php foreach($playlists as $row) {
-                    echo "<li><a class='dropdown-item' href='?playlistId=".urlencode($row['playlist_id'])."'>$row[name]</a></li>";
-                  } ?>
-                </ul>
+  <?php foreach($playlists as $row) {
+    echo "<li><a class='dropdown-item' href='?playlistId=".urlencode($row['playlist_id'])."'>$row[name]</a></li>";
+  } ?>
+</ul>
               </div>
               </li>
             </ul>
