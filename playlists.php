@@ -38,7 +38,8 @@ if(isset($_SESSION['user_id'])) {
     $playlistId,
     $userId
   ]);
-  $playlist = $playlists->fetch();
+  $playlist = $playlists->fetchAll();
+  var_dump($playlist);
 }
 
 ?>
