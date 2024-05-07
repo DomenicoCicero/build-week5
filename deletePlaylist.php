@@ -16,7 +16,7 @@ $options = [
 
 $pdo = new PDO($dsn, $user, $pass, $options);
 
-$userId = $_SESSION['user_Id'] ?? '';
+$userId = $_SESSION['user_id'] ?? '';
 $playlistId = $_GET['playlistId'] ?? '';
 
 
