@@ -28,8 +28,8 @@ if(isset($_SESSION['user_id'])) {
     WHERE playlist_movies.playlist_id = :playlistId
     AND title LIKE :search');
   $stmt -> execute([
-    ':playlistId' => $playlistId,
-    ':search' => "%$search%"
+    'playlistId' => $playlistId,
+    'search' => "%$search%"
   ]);
 
   $movies = $stmt->fetchAll();
