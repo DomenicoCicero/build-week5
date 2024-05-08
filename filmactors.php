@@ -26,7 +26,6 @@ if(isset($_SESSION['user_id'])) {
       ');
     $stmt -> execute([
       'actorId' => $actorId,
-      'search' => "%$search%"
     ]);
   
     $movies = $stmt->fetchAll();
