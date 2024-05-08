@@ -109,7 +109,7 @@ if(isset($_POST['add-playlist'])) {
             "<div class='card'>
             <h2 class='card-title'>$movie[title]</h2>
             
-            <img src='$movie[cover_image_url]' id='img-detail-page' class='card-img-top details-img mx-auto' alt='$movie[title]'>
+            <img src='$movie[cover_image_url]' id='img-detail-page' class='card-img-top details-img mx-auto' style='trasform: scale(1.0)' alt='$movie[title]'>
             <div class ='card-body'>
             <p class ='card-text'>$movie[description]</p>
             <p class = 'card-text'><span class ='fw-semibold'>Anno di Rilascio</span> : $movie[release_year]</p>
