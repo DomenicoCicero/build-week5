@@ -15,7 +15,7 @@ $options = [
 ];
 
 $pdo = new PDO($dsn, $user, $pass, $options);
-$search = $_POST['search'] ?? '';
+$search = $_GET['search'] ?? '';
 $playlistId = $_GET['playlistId'] ?? '';
 $userId = $_SESSION['user_id'] ?? '';
 $edit = $_POST['edit'] ?? '';
@@ -137,8 +137,10 @@ if(isset($_SESSION['user_id'])) {
               </li>
             </ul>
             <div class="d-flex align-items-center">
-             <form class="row g-3 d-none" id="searchForm" method="POST">
+             <form class="row g-3 d-none" id="searchForm" method="GET">
              <div class="col">
+              
+              <input type="hidden" name="playlist" value="<?=$playlistId?>"  />
              <input type="text" name="search" class="form-control" placeholder="Cerca un titolo">
              </div>
              <div class="col-auto">
