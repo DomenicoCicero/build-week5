@@ -69,7 +69,12 @@ footer {
 
 .add-playlist {
   color: #f5f5f1;
-  /* font-size: 1rem; */
+  font-size: 1rem;
+}
+
+#plus-playlist {
+  color: #f5f5f1;
+  font-size: 1rem;
 }
 
 .alert {
