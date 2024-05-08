@@ -85,7 +85,7 @@ if(isset($_POST['add-playlist'])) {
                   echo "<option value='$row[playlist_id]'>$row[name]</option>";
                 } ?>
     </select>
-    <button type="submit" style="background-color: #221f1f">Aggiungi</button>
+    <button type="submit" style="background-color: #221f1f" class="text-white">Aggiungi</button>
 </form>
             </div>
           </div>
