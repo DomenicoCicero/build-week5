@@ -120,7 +120,9 @@ if(isset($_SESSION['user_id'])) {
           if(count($actors) > 0) {
            foreach($actors as $row) {
            echo 
-           "<li class='list-group-item'>$row[name]</li>";                 
+           "<a href='http://localhost/progetto-netflix-php/build-week5/filmactors.php?id={$row['actor_id']}'>
+           <li class='list-group-item'>$row[name]</li>
+           </a>"; 
          } 
            } else {
                echo "<div class='alert alert-danger' role='alert'>
