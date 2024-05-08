@@ -110,15 +110,9 @@ if(isset($_SESSION['user_id'])) {
       <div class="container-fluid px-4">
           <h2 class="mb-4">TV Shows</h2>
         <div
-          class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-6 mb-4"
+          class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-6 mb-4 justify-content-center"
         >
         <ul class="list-group">
-  <li class="list-group-item">An item</li>
-  <li class="list-group-item">A second item</li>
-  <li class="list-group-item">A third item</li>
-  <li class="list-group-item">A fourth item</li>
-  <li class="list-group-item">And a fifth one</li>
-
         <?php 
           if(count($actors) > 0) {
            foreach($actors as $row) {
