@@ -77,22 +77,33 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="login-registrazione.css"/>
 </head>
 <body>
-    <div class="container">
-    <h1>Login</h1>
-    <form action="" method="POST" novalidate  class="mb-4">
-        <div class="mb-3">
+    <nav>
+        <a href="#"><img src="./assets/logo.png" alt="Logo-Netflix"></a>
+    </nav>
+    <div class="form-wrapper">
+    <h2>Login</h2>
+    <form action="" method="POST" novalidate  >
+        <div class="form-control">
             <label for="username" class="form-label">Username</label>
             <input type="text" class="form-control" id="username" name="username" value="<?= $user['username'] ?>">
         </div>
-        <div class="mb-3">
+        <div class="form-control">
             <label for="password" class="form-label">Password</label>
             <input type="password" class="form-control" id="password" name="password" value="">
         </div>
-        <button type="submit" class="btn btn-primary">Login</button>
+        <button type="submit" >Login</button>
+        <div class="form-help">
+            <div class="remember-me">
+                <input type="checkbox" id="remember-me">
+                <label for="remember-me">Ricordami</label>
+            </div>
+            <a href="https://www.netflix.com/it/">Aiuto</a>
+        </div>
     </form>
+    
     <a href="http://localhost/progetto-netflix-php/build-week5/registrazione.php">Vai alla registrazione</a>
  </div>
 </body>
