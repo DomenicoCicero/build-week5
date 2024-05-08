@@ -52,17 +52,14 @@ footer {
   font-size: 0.6em;
 }
 
-.col img {
-  transition: transform 0.2s;
-}
-
 .custom-img {
   width: 301px;
   height: 164px;
   object-fit: cover;
+  transition: transform 0.2s;
 }
 
-.col img:hover {
+.col .custom-img:hover {
   transform: scale(1.1);
   cursor: pointer;
 }
@@ -98,7 +95,6 @@ footer {
 
 .details-img {
   width: 350px;
-  transform: scale(1);
 }
 
 .error-message {
