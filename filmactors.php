@@ -23,9 +23,11 @@ if(isset($_SESSION['user_id'])) {
       'SELECT * FROM movies 
       JOIN movie_actors ON movies.movie_id = movie_actors.movie_id 
       WHERE movie_actors.actor_id = :actorId
+      AND title LIKE ?
       ');
     $stmt -> execute([
       'actorId' => $actorId,
+      "%$search%"
     ]);
   
     $movies = $stmt->fetchAll();
