@@ -78,14 +78,14 @@ if(isset($_POST['add-playlist'])) {
         <div class="d-flex justify-content-between">
           <div class="d-flex align-items-center mb-4">
             <h2 class="mb-0">TV Shows</h2>
-            <div class="btn-group" role="group">
+            <div class="btn-group ms-4" role="group">
               <form method="post">
               <select name="playlists" id="playlists" style="background-color: #221f1f; cursor: pointer;" class="text-white py-1">
                 <?php foreach($playlists as $row){
                   echo "<option value='$row[playlist_id]'>$row[name]</option>";
                 } ?>
     </select>
-    <button type="submit">Aggiungi</button>
+    <button type="submit" style="background-color: #221f1f">Aggiungi</button>
 </form>
             </div>
           </div>
