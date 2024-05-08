@@ -157,7 +157,7 @@ if(isset($_POST['add-playlist'])) {
               <form method="post">
               <select name="genre" id="genre" style="background-color: #221f1f; cursor: pointer;" class="text-white py-1">
               <option value="<?= $selectedGenre ?>"><?= $selectedGenre === "" ? "Tutti i Generi" : $selectedGenre ?></option>
-              <option value="">Tutti i Generi</option>
+              <!-- <option value="">Tutti i Generi</option> -->
               <option value="Azione">Azione</option>
               <option value="Fantascienza">Fantascienza</option>
               <option value="Thriller">Thriller</option>
