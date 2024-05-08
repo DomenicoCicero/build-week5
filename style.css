@@ -52,7 +52,7 @@ footer {
   font-size: 0.6em;
 }
 
-.col img {
+.custom-img {
   transition: transform 0.2s;
 }
 
@@ -62,14 +62,9 @@ footer {
   object-fit: cover;
 }
 
-.col img:hover {
+.custom-img:hover {
   transform: scale(1.1);
   cursor: pointer;
-}
-
-.col .card img:hover {
-  transform: scale(1);
-  cursor: none;
 }
 
 .add-playlist {
