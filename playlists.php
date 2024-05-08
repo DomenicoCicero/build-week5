@@ -140,7 +140,7 @@ if(isset($_SESSION['user_id'])) {
              <form class="row g-3 d-none" id="searchForm" method="GET">
              <div class="col">
               
-              <input type="hidden" name="playlist" value="<?=$playlistId?>"  />
+              <input type="hidden" name="playlistId" value="<?=$playlistId?>"  />
              <input type="text" name="search" class="form-control" placeholder="Cerca un titolo">
              </div>
              <div class="col-auto">
