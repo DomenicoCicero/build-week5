@@ -59,7 +59,7 @@ footer {
   transition: transform 0.2s;
 }
 
-.col .custom-img:hover {
+.custom-img:hover {
   transform: scale(1.1);
   cursor: pointer;
 }
