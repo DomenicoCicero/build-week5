@@ -120,7 +120,7 @@ if(isset($_SESSION['user_id'])) {
           if(count($actors) > 0) {
            foreach($actors as $row) {
            echo 
-           "<a href='http://localhost/progetto-netflix-php/build-week5/filmactors.php?id={$row['actor_id']}'>
+           "<a href='http://localhost/progetto-netflix-php/build-week5/filmactors.php?id={$row['actor_id']}' class='text-decoration-none'>
            <li class='list-group-item'>$row[name]</li>
            </a>"; 
          } 
