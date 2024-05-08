@@ -35,7 +35,7 @@ if(isset($_SESSION['user_id'])) {
         $actorId,
     ]);
 
-    $actor = $stmtActor->fetchAll();
+    $actor = $stmtActor->fetch();
 }
 
 ?>
