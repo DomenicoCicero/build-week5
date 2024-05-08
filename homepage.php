@@ -174,7 +174,7 @@ if(isset($_POST['add-playlist'])) {
 </form>
             </div>
           </div>
-          <div>
+          <div class="pt-1">
             <span class="add-playlist" id="plus-playlist" style="font-size: 1rem;"><i class="bi bi-plus-circle"></i> Crea Nuova Playlist</span>
           
           <form class="row g-3 d-none" id="add-playlist" method="POST">
