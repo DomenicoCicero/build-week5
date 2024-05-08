@@ -111,7 +111,7 @@ if(isset($_SESSION['user_id'])) {
         </div>
       </nav>
       <div class="container-fluid px-4">
-          <h2 class="mb-4">TV Shows</h2>
+          <h2 class="mb-4">Actors</h2>
         <div
           class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-6 mb-4 justify-content-center"
         >

@@ -29,6 +29,13 @@ if(isset($_SESSION['user_id'])) {
     ]);
   
     $movies = $stmt->fetchAll();
+
+    $stmtActor = $pdo->prepare('SELECT * FROM actors WHERE actor_id = ?');
+    $stmtActor->execute([
+        $actorId,
+    ]);
+
+    $actor = $stmtActor->fetchAll();
 }
 
 ?>
@@ -131,7 +138,7 @@ if(isset($_SESSION['user_id'])) {
         </div>
       </nav>
       <div class="container-fluid px-4">
-        <h4>Film</h4>
+        <h4><?= $actorId === '' ? '' : "Film of $actor[name]" ?></h4>
         <div
           class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-6 mb-4"
         >
