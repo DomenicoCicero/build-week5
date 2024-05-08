@@ -50,13 +50,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($success) {
         $alertMessage = '<div style="padding: 1rem; margin-bottom: 1rem; border: 1px solid transparent; border-radius: 0.25rem; color: #155724; background-color: #d4edda; border-color: #c3e6cb;" role="alert">
-        <h4 style="margin-top: 0; margin-bottom: 0.5rem;">Registrazione completata!</h4>
-        <p style="margin-top: 0; margin-bottom: 0;">Benvenuto a Netflix Clone.</p>
-    </div>';
-        // $alertMessage = '<div class="alert alert-success" role="alert">
-        //                     <h4 class="alert-heading">Registrazione completata!</h4>
-        //                     <p>Benvenuto a Netflix Clone.</p>
-        //                 </div>';
+                         <h4 style="margin-top: 0; margin-bottom: 0.5rem;">Registrazione completata!</h4>
+                         <p style="margin-top: 0; margin-bottom: 0;">Benvenuto a Netflix Clone.</p>
+                         </div>';
             
     } else {
         $alertMessage = '<div class="alert alert-danger" role="alert">
