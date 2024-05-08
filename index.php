@@ -87,11 +87,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     <h2>Login</h2>
     <form action="" method="POST" novalidate  >
         <div class="form-control">
-            <label for="username" class="form-label">Username</label>
+            <label for="username" >Username</label>
             <input type="text" class="form-control" id="username" name="username" value="<?= $user['username'] ?>">
         </div>
         <div class="form-control">
-            <label for="password" class="form-label">Password</label>
+            <label for="password">Password</label>
             <input type="password" class="form-control" id="password" name="password" value="">
         </div>
         <button type="submit" >Login</button>
