@@ -122,7 +122,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         
 
             <div class="logo">
-                <img src="https://i.ibb.co/r5krrdz/logo.png">
+                <img src="./assets/logo.png">
             </div>
 
             <div class="showcase-content">
@@ -131,9 +131,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <h1>Login</h1>
                         <div class="info">
                             <!-- <input class="email" type="email" placeholder="Email or phone number"> <br> -->
-                            <input type="text" class="username"  name="username" placeholder="username" value="<?= $user['username'] ?>">
+                            <input type="text" class="email"  name="username" placeholder="username" value="<?= $user['username'] ?>">
                             <!-- <input class="email" type="password" placeholder="Password"> -->
-                            <input type="password" class="username" placeholder="password" name="password" value="">
+                            <input type="password" class="email" placeholder="password" name="password" value="">
                         </div>
                         <div class="btn">
                             <button class="btn-primary" type="submit">Login</button>
