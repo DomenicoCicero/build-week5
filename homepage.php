@@ -25,7 +25,7 @@ if(isset($_SESSION['user_id'])) {
   $stmt = $pdo->prepare('SELECT * FROM movies WHERE title LIKE ? AND genre LIKE ?');
   $stmt -> execute([
     "%$search%",
-    "%$search%",
+    // "%$search%",
     "%$selectedGenre%"
   ]);
 
