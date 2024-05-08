@@ -143,7 +143,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <input value="true" type="checkbox"><label>Ricordami</label>
                             </div>
 
-                            <a href="https://www.netflix.com/dz-en/LoginHelp">Need Help ?</a>
+                            <a href="#">Need Help ?</a>
                         
                         </div>
 
