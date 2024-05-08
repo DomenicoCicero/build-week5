@@ -84,7 +84,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
 
-    <div class="<?= $success ? 'd-none' : 'container'?>  ">
+    <div class="  ">
     <h1>Registrazione</h1>
     <form action="" method="POST" novalidate  class="mb-4">
         <div class="mb-3">
@@ -130,10 +130,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <div class="<?= $success ? 'd-none' : 'container'?>  ">
                         <div class="info">
                             <!-- <input class="email" type="email" placeholder="Email or phone number"> <br> -->
-                            <input type="text" class="email"  name="username" placeholder="username" value="<?= $user['username'] ?>">
+                            <input type="text" class="email"  name="username" placeholder="username" required value="<?= $user['username'] ?>">
                             <!-- <input class="email" type="password" placeholder="Password"> -->
-                            <input type="email" class="email" placeholder="email"  name="email" value="<?= $user['email'] ?>">
-                            <input type="password" class="email" placeholder="password" name="password" value="<?= $user['password'] ?>">
+                            <input type="email" class="email" placeholder="email"  name="email" required value="<?= $user['email'] ?>">
+                            <input type="password" class="email" placeholder="password" name="password" required value="<?= $user['password'] ?>">
                         </div>
                         <div class="btn">
                             <button class="btn-primary" type="submit">Login</button>
