@@ -76,11 +76,11 @@ if(isset($_POST['add-playlist'])) {
      <?= include __DIR__ . "/myNavbar.php"; ?>
       <div class="container-fluid px-4">
         <div class="d-flex justify-content-between">
-          <div class="d-flex">
-            <h2 class="mb-4">TV Shows</h2>
+          <div class="d-flex align-items-center mb-4">
+            <h2 class="mb-0">TV Shows</h2>
             <div class="btn-group" role="group">
               <form method="post">
-              <select name="playlists" id="playlists">
+              <select name="playlists" id="playlists" style="background-color: #221f1f; cursor: pointer;" class="text-white py-1">
                 <?php foreach($playlists as $row){
                   echo "<option value='$row[playlist_id]'>$row[name]</option>";
                 } ?>
@@ -89,8 +89,8 @@ if(isset($_POST['add-playlist'])) {
 </form>
             </div>
           </div>
-          <div>
-          <span class="add-playlist" id="plus-playlist"><i class="bi bi-plus-circle"></i> Crea Nuova Playlist</span>
+          <div class="pt-2">
+          <span class="add-playlist" id="plus-playlist" style="font-size: 1rem;"><i class="bi bi-plus-circle"></i> Crea Nuova Playlist</span>
           
           <form class="row g-3 d-none" id="add-playlist" method="POST">
              <div class="col">
