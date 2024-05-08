@@ -15,38 +15,12 @@ $options = [
 ];
 
 $pdo = new PDO($dsn, $user, $pass, $options);
-$search = $_GET['search'] ?? '';
-$selectedGenre = $_POST['genre'] ?? '';
-$userId = $_SESSION['user_id'] ?? '';
-$addPlaylist = $_POST['add-playlist'] ?? '';
-
 
 if(isset($_SESSION['user_id'])) {
-  $stmt = $pdo->prepare('SELECT * FROM movies WHERE title LIKE ? AND director LIKE ? AND genre LIKE ?');
-  $stmt -> execute([
-    "%$search%",
-    "%$search%",
-    "%$selectedGenre%"
-  ]);
+    $stmt = $pdo->prepare('SELECT * FROM actors');
+    $stmt->execute();
 
-  $movies = $stmt->fetchAll();
-
-  $stmtPlaylists = $pdo->prepare('SELECT * FROM playlists WHERE user_id = ? ');
-  $stmtPlaylists->execute([
-    $userId
-  ]);
-
-  $playlists = $stmtPlaylists->fetchAll();
-}
-
-if(isset($_POST['add-playlist'])) {
-  $add = $pdo->prepare('INSERT INTO playlists (user_id, name) VALUES (?, ?)');
-  $add->execute([
-    $userId,
-    $addPlaylist
-  ]);
-  header("Location: http://localhost/progetto-netflix-php/build-week5/homepage.php");
-  exit;
+    $actors = $stmt->fetchAll();
 }
 
 ?>
@@ -103,25 +77,9 @@ if(isset($_POST['add-playlist'])) {
                 <a class="nav-link fw-bold" href="#">Movies</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link fw-bold" href="http://localhost/progetto-netflix-php/build-week5/actors.php">Actors</a>
+                <a class="nav-link fw-bold" href="#">Recently Added</a>
               </li>
               <li class="nav-item">
-              <div class="dropdown ms-4 mt-1">
-                <button
-                  type="button"
-                  class="btn btn-secondary btn-sm dropdown-toggle rounded-0"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                  style="background-color: #221f1f"
-                >
-                  My Playlists
-                </button>
-                <ul class="dropdown-menu">
-                  <?php foreach($playlists as $row) {
-                    echo "<li><a class='dropdown-item' href='http://localhost/progetto-netflix-php/build-week5/playlists.php?playlistId=".urlencode($row['playlist_id'])."'>$row[name]</a></li>";
-                  } ?>
-                </ul>
-              </div>
               </li>
             </ul>
             <div class="d-flex align-items-center">
@@ -150,64 +108,31 @@ if(isset($_POST['add-playlist'])) {
         </div>
       </nav>
       <div class="container-fluid px-4">
-        <div class="d-flex justify-content-between">
-          <div class="d-flex align-items-center mb-4">
-            <h2 class="mb-0">TV Shows</h2>
-            <div class="btn-group ms-4" role="group">
-              <form method="post">
-              <select name="genre" id="genre" style="background-color: #221f1f; cursor: pointer;" class="text-white py-1">
-              <option value="<?= $selectedGenre ?>"><?= $selectedGenre === "" ? "Tutti i Generi" : $selectedGenre ?></option>
-              <option value="">Tutti i Generi</option>
-              <option value="Azione">Azione</option>
-              <option value="Fantascienza">Fantascienza</option>
-              <option value="Thriller">Thriller</option>
-              <option value="Crimine">Crimine</option>
-              <option value="Drammatico">Drammatico</option>
-              <option value="Avventura">Avventura</option>
-              <option value="Fantasy">Fantasy</option>
-              <option value="Biografia">Biografia</option>
-              <option value="Storico">Storico</option>
-              <option value="Mistero">Mistero</option>
-        <!-- Altre opzioni di genere... -->
-    </select>
-    <button type="submit" style="background-color: #221f1f"><i class="bi bi-search text-white"></i></button>
-</form>
-            </div>
-          </div>
-          <div class="pt-2">
-            <span class="add-playlist" id="plus-playlist" style="font-size: 1rem;"><i class="bi bi-plus-circle"></i> Crea Nuova Playlist</span>
-          
-          <form class="row g-3 d-none" id="add-playlist" method="POST">
-             <div class="col">
-             <input type="text" name="add-playlist" class="form-control" placeholder="Aggiungi Playlist">
-             </div>
-             <div class="col-auto">
-             <button type="submit" class="btn btn-primary mb-3">Aggiungi</button>
-        </div>
-    </form>
-          </div>
-        </div>
-        <h4>Trending Now</h4>
+          <h2 class="mb-4">TV Shows</h2>
         <div
           class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-6 mb-4"
         >
+        <ul class="list-group">
+  <li class="list-group-item">An item</li>
+  <li class="list-group-item">A second item</li>
+  <li class="list-group-item">A third item</li>
+  <li class="list-group-item">A fourth item</li>
+  <li class="list-group-item">And a fifth one</li>
+
         <?php 
-          if(count($movies) > 0) {
-           foreach($movies as $row) {
+          if(count($actors) > 0) {
+           foreach($actors as $row) {
            echo 
-           "<div class='col mb-2 text-center px-1'>
-           <a href='http://localhost/progetto-netflix-php/build-week5/moviedetails.php?id={$row['movie_id']}'>
-             <img class='img-fluid custom-img' src='$row[cover_image_url]' alt='movie picture' />
-             </a>
-           </div>";                 
+           "<li class='list-group-item'>$row[name]</li>";                 
          } 
            } else {
                echo "<div class='alert alert-danger' role='alert'>
-               Nessun Risultato trovato!
+               Nessun Attore trovato!
              </div>";
           };
         
         ?>
+        </ul>
         </div>
         <?php include __DIR__ . "/footer.php" ?>
       </div>
@@ -226,17 +151,6 @@ if(isset($_POST['add-playlist'])) {
           searchForm.classList.remove("d-none")
         } else {
           searchForm.classList.add("d-none")
-        }
-      })
-
-      const addPlaylistBtn = document.getElementById("plus-playlist")
-      addPlaylistBtn.style.cursor = "pointer"
-      const addPlaylistForm = document.getElementById("add-playlist")
-      addPlaylistBtn.addEventListener("click", () => {
-        if(addPlaylistForm.classList.contains("d-none")) {
-          addPlaylistForm.classList.remove("d-none")
-        } else {
-          addPlaylistForm.classList.add("d-none")
         }
       })
     </script>
