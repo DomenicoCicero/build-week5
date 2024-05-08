@@ -125,7 +125,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <div class="showcase-content">
                 <div class="formm">
-                    <form action="" method="POST" novalidate >
+                    <form action="" method="POST" >
                         <h1>Registrazione</h1>
                         <div class="<?= $success ? 'd-none' : 'container'?>  ">
                         <div class="info">
