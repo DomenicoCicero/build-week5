@@ -15,10 +15,13 @@ $options = [
 ];
 
 $pdo = new PDO($dsn, $user, $pass, $options);
+$search = $_GET['search'] ?? '';
 
 if(isset($_SESSION['user_id'])) {
-    $stmt = $pdo->prepare('SELECT * FROM actors');
-    $stmt->execute();
+    $stmt = $pdo->prepare('SELECT * FROM actors WHERE name LIKE ?');
+    $stmt->execute([
+        "%$search%",
+    ]);
 
     $actors = $stmt->fetchAll();
 }
