@@ -152,7 +152,7 @@ if(isset($_POST['add-playlist'])) {
       <div class="container-fluid px-4">
         <div class="d-flex justify-content-between">
           <div class="d-flex align-items-center mb-4">
-            <h2>TV Shows</h2>
+            <h2 class="mb-0">TV Shows</h2>
             <div class="btn-group ms-4" role="group">
               <form method="post">
               <select name="genre" id="genre" style="background-color: #221f1f" class="text-white py-1">
