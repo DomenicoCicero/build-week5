@@ -170,7 +170,7 @@ if(isset($_POST['add-playlist'])) {
               <option value="Mistero">Mistero</option>
         <!-- Altre opzioni di genere... -->
     </select>
-    <button type="submit">Cerca per genere</button>
+    <button type="submit" style="background-color: #221f1f"><i class="bi bi-search text-white"></i></button>
 </form>
             </div>
           </div>
