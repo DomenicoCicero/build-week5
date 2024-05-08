@@ -44,7 +44,7 @@ nav a img {
   margin: 25px 0 65px;
 }
 
-.form-control input {
+/* .form-control input {
   margin-bottom: 10px;
   height: 50px;
   width: 100%;
@@ -55,6 +55,16 @@ nav a img {
   color: #fff;
   font-size: 1rem;
   padding: 0 20px;
+} */
+
+.form-control label {
+  position: absolute;
+  left: 20px;
+  top: 10px; /* Riduciamo la distanza dal campo di input */
+  font-size: 1rem;
+  pointer-events: none;
+  color: #8c8c8c;
+  transition: all 0.1s ease;
 }
 
 .form-control input:is(:focus, :valid) {
