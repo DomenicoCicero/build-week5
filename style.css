@@ -98,6 +98,7 @@ footer {
 
 .details-img {
   width: 350px;
+  transform: scale(1);
 }
 
 .error-message {
