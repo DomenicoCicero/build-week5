@@ -131,44 +131,7 @@ if(isset($_SESSION['user_id'])) {
         </div>
       </nav>
       <div class="container-fluid px-4">
-        <div class="d-flex justify-content-between">
-          <div class="d-flex align-items-center mb-4">
-            <h2 class="mb-0">TV Shows</h2>
-            <div class="btn-group ms-4" role="group">
-              <form method="post">
-              <select name="genre" id="genre" style="background-color: #221f1f; cursor: pointer;" class="text-white py-1">
-              <option value="<?= $selectedGenre ?>"><?= $selectedGenre === "" ? "Tutti i Generi" : $selectedGenre ?></option>
-              <option value="">Tutti i Generi</option>
-              <option value="Azione">Azione</option>
-              <option value="Fantascienza">Fantascienza</option>
-              <option value="Thriller">Thriller</option>
-              <option value="Crimine">Crimine</option>
-              <option value="Drammatico">Drammatico</option>
-              <option value="Avventura">Avventura</option>
-              <option value="Fantasy">Fantasy</option>
-              <option value="Biografia">Biografia</option>
-              <option value="Storico">Storico</option>
-              <option value="Mistero">Mistero</option>
-        <!-- Altre opzioni di genere... -->
-    </select>
-    <button type="submit" style="background-color: #221f1f"><i class="bi bi-search text-white"></i></button>
-</form>
-            </div>
-          </div>
-          <div class="pt-2">
-            <span class="add-playlist" id="plus-playlist" style="font-size: 1rem;"><i class="bi bi-plus-circle"></i> Crea Nuova Playlist</span>
-          
-          <form class="row g-3 d-none" id="add-playlist" method="POST">
-             <div class="col">
-             <input type="text" name="add-playlist" class="form-control" placeholder="Aggiungi Playlist">
-             </div>
-             <div class="col-auto">
-             <button type="submit" class="btn btn-primary mb-3">Aggiungi</button>
-        </div>
-    </form>
-          </div>
-        </div>
-        <h4>Trending Now</h4>
+        <h4>Film</h4>
         <div
           class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 row-cols-xl-6 mb-4"
         >
