@@ -48,6 +48,9 @@ if(isset($_POST['add-playlist'])) {
     $userId,
     $addPlaylist
   ]);
+  header("Location: http://localhost/progetto-netflix-php/build-week5/moviedetails.php?id=$movie_id");
+  exit;
+ 
 }
 
 
